@@ -1,0 +1,16 @@
+{
+  extends: ['fbjs', 'prettier'],
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        bracketSpacing: false,
+        jsxBracketSameLine: true,
+        singleQuote: true,
+        trailingComma: 'all',
+        useTabs: false,
+      },
+    ],
+  },
+}

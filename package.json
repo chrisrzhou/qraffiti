@@ -1,0 +1,45 @@
+{
+  "name": "qraffiti",
+  "version": "0.1.0",
+  "description": "Create beautiful QR codes",
+  "repository": "https://github.com/chrisrzhou/qraffiti",
+  "author": "Chris Zhou <christopher.r.zhou@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisrzhou/qraffiti"
+  },
+  "scripts": {
+    "clean": "rm -rf public",
+    "lint": "eslint --ext .js --ext .jsx --fix src",
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write '**/*.js'"
+  },
+  "dependencies": {
+    "gatsby": "^2.0.0",
+    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "d3": "^5.7.0",
+    "qrcode": "^1.2.2",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0",
+    "rebass": "^3.0.0-8",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.1.0",
+    "eslint-config-fbjs": "^2.0.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-relay": "^0.0.24",
+    "prettier": "^1.13.7"
+  }
+}

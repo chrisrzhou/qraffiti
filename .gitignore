@@ -1,0 +1,16 @@
+# node
+node_modules
+
+# logs
+*.log*
+
+# files and IDE
+.DS_STORE
+*~
+*.swp
+*.swo
+
+# project
+.cache
+build
+public
