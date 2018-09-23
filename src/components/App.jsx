@@ -20,11 +20,8 @@ export default class App extends React.PureComponent {
     const {settings, text} = this.state;
     return (
       <Flex flexDirection="column">
-        <QRInput />
-        <QRSettings settings={settings} />
-        <Background backgroundColors={settings.backgroundColors}>
-          <QRCode renderer="base" settings={settings} text={text} />
-        </Background>
+        <Background backgroundColors={settings.backgroundColors} />
+        <QRCode renderer="base" settings={settings} text={text} />
       </Flex>
     );
   }
