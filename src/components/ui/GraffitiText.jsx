@@ -9,7 +9,7 @@ const GraffitiText = ({children, font, fontSize}) => (
 );
 
 GraffitiText.defaultProps = {
-  fontSize: [18, 24],
+  fontSize: [16, 20],
 };
 
 const mapStateToProps = state => ({

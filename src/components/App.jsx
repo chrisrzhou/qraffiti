@@ -1,11 +1,10 @@
-import {Box, Flex} from 'rebass';
-
-import QRCode from 'components/QRCode';
-import QRInput from 'components/QRInput';
-import QRSettings from 'components/QRSettings';
+import {Flex} from 'rebass';
+import QRCode from './QRCode';
 import React from 'react';
+import {connect} from 'react-redux';
+import {setRandomBackgroundImage} from 'redux/actions';
 
-export default class App extends React.PureComponent {
+class App extends React.PureComponent {
   state = {
     settings: {
       canvasSize: 400,
@@ -16,6 +15,17 @@ export default class App extends React.PureComponent {
     text: 'Hello world',
   };
 
+  componentDidMount() {
+    const {setRandomBackgroundImage} = this.props;
+    this.backgroundInterval = setInterval(setRandomBackgroundImage, 8000);
+  }
+
+  componentWillUnmount() {
+    if (this.backgroundInterval) {
+      clearInterval(this.backgroundInterval);
+    }
+  }
+
   render() {
     const {settings, text} = this.state;
     return (
@@ -25,3 +35,8 @@ export default class App extends React.PureComponent {
     );
   }
 }
+
+export default connect(
+  null,
+  {setRandomBackgroundImage},
+)(App);

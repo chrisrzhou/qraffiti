@@ -1,4 +1,4 @@
-import {actionTypes} from 'redux/actions';
+import {actionTypes} from './actions';
 import backgrounds from 'backgrounds';
 import fonts from 'fonts';
 
@@ -8,6 +8,7 @@ const getInitialState = () => ({
   backgroundImage: backgrounds[0].value,
   font: fonts[0].value,
   text: 'Hello world',
+  inputType: 'url',
 });
 
 export default (state = getInitialState(), action) => {

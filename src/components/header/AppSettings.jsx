@@ -2,7 +2,7 @@ import {setBackgroundImage, setFont} from 'redux/actions';
 
 import {Flex} from 'rebass';
 import React from 'react';
-import Selector from 'components/Selector';
+import Selector from 'components/ui/Selector';
 import {connect} from 'react-redux';
 
 const AppSettings = ({

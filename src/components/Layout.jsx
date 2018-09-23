@@ -1,8 +1,7 @@
 import 'globalStyles';
 
-import Background from 'components/Background';
-import {Flex} from 'rebass';
-import Header from 'components/Header';
+import Background from './Background';
+import Header from 'components/header/Header';
 import Helmet from 'react-helmet';
 import {Provider} from 'react-redux';
 import React from 'react';
@@ -22,11 +21,11 @@ export default ({children}) => (
       <html lang="en" />
     </Helmet>
     <Provider store={store}>
-      <Flex flexDirection="column">
+      <div>
         <Background />
         <Header />
         {children}
-      </Flex>
+      </div>
     </Provider>
   </>
 );

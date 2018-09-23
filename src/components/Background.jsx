@@ -11,11 +11,9 @@ const Background = ({background, backgroundImage}) => (
       background-image: url(${backgroundImage});
       background-size: cover;
       animation: fadein 4s;
-      bottom: 0;
-      left: 0;
+      height: 100vh;
       position: fixed;
-      right: 0;
-      top: 0;
+      width: 100vw;
       z-index: -1; /* always below */
 
       @keyframes fadein {
