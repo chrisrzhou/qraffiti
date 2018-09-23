@@ -1,13 +1,15 @@
-import {Flex, Text} from 'rebass';
-
+import AppSettings from 'components/AppSettings';
+import {Flex} from 'rebass';
+import GraffitiText from 'components/GraffitiText';
 import React from 'react';
 
-const Header = () => (
-  <Flex justifyContent="center" p={4}>
-    <Text fontSize={[100, 200]} textAlign="center">
-      qraffiti
-    </Text>
+export default () => (
+  <Flex
+    bg="rgba(0, 0, 0, 0.6)"
+    flexDirection="column"
+    justifyContent="center"
+    p={3}>
+    <GraffitiText fontSize={[50, 100, 150]}>qraffiti</GraffitiText>
+    <AppSettings />
   </Flex>
 );
-
-export default Header;

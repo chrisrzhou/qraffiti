@@ -5,10 +5,10 @@ export const actionTypes = {
 
 export const setBackgroundImage = backgroundImage => ({
   type: actionTypes.SET_BACKGROUND_IMAGE,
-  paylod: {backgroundImage},
+  payload: {backgroundImage},
 });
 
-export const setFont = backgroundImage => ({
-  type: actionTypes.SET_BACKGROUND_IMAGE,
-  paylod: {backgroundImage},
+export const setFont = font => ({
+  type: actionTypes.SET_FONT,
+  payload: {font},
 });

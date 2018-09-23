@@ -6,7 +6,7 @@ const fontFaces = fonts
     return `
       @font-face {
         font-family: '${font.label}';
-        src: url("${font.url}");
+        src: url("${font.ttf}");
       }
     `;
   })
@@ -17,7 +17,7 @@ injectGlobal`
   body {
     background: black;
     color: white;
-    font-family: 'Most Wasted', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 24px;
     margin: 0;
   }

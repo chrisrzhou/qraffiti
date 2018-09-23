@@ -9,13 +9,13 @@ import bg8 from './bg8.jpg';
 import bg9 from './bg9.jpg';
 
 export default [
-  {title: 'yellow', url: bg1},
-  {title: 'yellow', url: bg2},
-  {title: 'yellow', url: bg3},
-  {title: 'yellow', url: bg4},
-  {title: 'yellow', url: bg5},
-  {title: 'yellow', url: bg6},
-  {title: 'yellow', url: bg7},
-  {title: 'yellow', url: bg8},
-  {title: 'yellow', url: bg9},
+  {label: 'yellow', value: bg1},
+  {label: 'brick', value: bg2},
+  {label: 'concrete', value: bg3},
+  {label: 'graffiti', value: bg4},
+  {label: 'girl', value: bg5},
+  {label: 'artist', value: bg6},
+  {label: 'flag', value: bg7},
+  {label: 'blue', value: bg8},
+  {label: 'art', value: bg9},
 ];
