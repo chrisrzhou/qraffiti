@@ -2,13 +2,12 @@
   "name": "qraffiti",
   "version": "0.1.0",
   "description": "Create beautiful QR codes",
-  "repository": "https://github.com/chrisrzhou/qraffiti",
-  "author": "Chris Zhou <christopher.r.zhou@gmail.com>",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/chrisrzhou/qraffiti"
   },
+  "author": "Chris Zhou <christopher.r.zhou@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "clean": "rm -rf public",
     "lint": "eslint --ext .js --ext .jsx --fix src",
@@ -17,17 +16,18 @@
     "format": "prettier --write '**/*.js'"
   },
   "dependencies": {
+    "d3": "^5.7.0",
     "gatsby": "^2.0.0",
     "gatsby-plugin-manifest": "^2.0.2",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
-    "d3": "^5.7.0",
+    "gatsby-plugin-resolve-src": "^2.0.0-beta.1",
     "qrcode": "^1.2.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "rebass": "^3.0.0-8",
-    "redux": "^4.0.0"
+    "styled-components": "^3.4.9"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",

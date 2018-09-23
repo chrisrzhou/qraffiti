@@ -11,17 +11,18 @@ export async function getPixels(text, errorCorrectionLevel = 'M') {
       img.onload = () => {
         // load and get image data
         const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
+        const context = canvas.getContext('2d');
         const {height: size} = img;
-        ctx.drawImage(img, 0, 0);
-        const {data} = ctx.getImageData(0, 0, size, size);
+        context.drawImage(img, 0, 0);
+        const {data} = context.getImageData(0, 0, size, size);
 
         let pixels = [];
         for (let x = 0; x < size; x++) {
           for (let y = 0; y < size; y++) {
             const idx = (x + y * size) * 4;
             pixels.push({
-              finder: isFinder(x, y, size),
+              isInnerEye: isInnerEye(x, y, size),
+              isOuterEye: isInnerEye(x, y, size),
               value: data[idx] > 0 ? 0 : 1,
               x,
               y,
@@ -35,7 +36,7 @@ export async function getPixels(text, errorCorrectionLevel = 'M') {
   });
 }
 
-function isFinder(x, y, size) {
+function isInnerEye(x, y, size) {
   const edge = 4 + 7; // margin + finder width
   return (
     (x <= edge && y <= edge) || // top-left

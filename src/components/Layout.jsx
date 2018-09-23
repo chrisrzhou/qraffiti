@@ -1,8 +1,7 @@
-import './layout.css';
-
-import Header from './Header';
+import Header from 'components/Header';
 import Helmet from 'react-helmet';
 import React from 'react';
+import injectGlobal from 'globalStyles';
 
 export default function({children}) {
   return (

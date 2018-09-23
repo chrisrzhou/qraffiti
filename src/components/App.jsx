@@ -1,63 +1,31 @@
-import QRCode from './QRCode';
+import Background from 'components/Background';
+import {Flex} from 'rebass';
+import QRCode from 'components/QRCode';
+import QRInput from 'components/QRInput';
+import QRSettings from 'components/QRSettings';
 import React from 'react';
 
 export default class App extends React.PureComponent {
   state = {
-    errorCorrectionLevel: 'L',
-    colorDark: 'black',
-    colorLight: 'white',
-    size: 400,
+    settings: {
+      canvasSize: 400,
+      backgroundColors: ['rgba(0, 0, 0, 0)'],
+      errorCorrectionLevel: 'L',
+      foregroundColors: ['black'],
+    },
     text: 'Hello world',
   };
 
   render() {
-    const {
-      errorCorrectionLevel,
-      colorDark,
-      colorLight,
-      size,
-      text,
-    } = this.state;
+    const {settings, text} = this.state;
     return (
-      <div style={{display: 'flex', flexDirection: 'column'}}>
-        <div>colorDark</div>
-        <input
-          type="text"
-          value={colorDark}
-          onChange={e => this.setState({colorDark: e.target.value})}
-        />
-        <div>colorLight</div>
-        <input
-          type="text"
-          value={colorLight}
-          onChange={e => this.setState({colorLight: e.target.value})}
-        />
-        <div>errorCorrectionLevel</div>
-        <input
-          type="text"
-          value={errorCorrectionLevel}
-          onChange={e => this.setState({errorCorrectionLevel: e.target.value})}
-        />
-        <div>Size</div>
-        <input
-          type="number"
-          value={size}
-          onChange={e => this.setState({size: e.target.value})}
-        />
-        <div>Text</div>
-        <input
-          type="text"
-          value={text}
-          onChange={e => this.setState({text: e.target.value})}
-        />
-        <QRCode
-          colorDark={colorDark}
-          colorLight={colorLight}
-          errorCorrectionLevel={errorCorrectionLevel}
-          size={size}
-          text={text}
-        />
-      </div>
+      <Flex flexDirection="column">
+        <QRInput />
+        <QRSettings settings={settings} />
+        <Background backgroundColors={settings.backgroundColors}>
+          <QRCode renderer="base" settings={settings} text={text} />
+        </Background>
+      </Flex>
     );
   }
 }

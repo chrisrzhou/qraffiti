@@ -3,6 +3,7 @@ module.exports = {
     title: 'qraffiti',
   },
   plugins: [
+    'gatsby-plugin-resolve-src',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',

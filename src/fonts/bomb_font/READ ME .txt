@@ -1,0 +1,13 @@
+Bomb font
+free for personal use only
+
+complete set & commercial licenses available
+
+more info:
+billyargel@gmail.com
+
+for more designs,
+visit billyargel.blogspot.com
+
+
+enjoy!

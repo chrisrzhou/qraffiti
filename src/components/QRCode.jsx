@@ -1,14 +1,12 @@
 import * as d3 from 'd3';
 
 import React from 'react';
-import {getPixels} from './../QRPixels';
+import {getPixels} from 'QRPixels';
+import renderers from 'renderers';
 
 export default class QRCanvas extends React.PureComponent {
   static defaultProps = {
-    colorDark: '#000000ff',
-    colorLight: '#ffffffff',
-    errorCorrectionLevel: 'M',
-    size: 400,
+    renderer: 'base',
   };
 
   componentDidMount() {
@@ -26,57 +24,41 @@ export default class QRCanvas extends React.PureComponent {
   }
 
   async _renderQRCode() {
+    const {settings, renderer, text} = this.props;
     const {
-      colorDark,
-      colorLight,
+      backgroundColors,
+      canvasSize,
+      foregroundColors,
       errorCorrectionLevel,
-      size,
-      text,
-    } = this.props;
-    const ctx = this._canvas.getContext('2d');
+    } = settings;
+    const context = this._canvas.getContext('2d');
 
     const pixels = await getPixels(text, errorCorrectionLevel);
     const pixelSize = Math.sqrt(pixels.length);
 
-    ctx.clearRect(0, 0, ctx.canvas.height, ctx.canvas.width);
-    ctx.canvas.height = size;
-    ctx.canvas.width = size;
+    context.clearRect(0, 0, context.canvas.height, context.canvas.width);
+    context.canvas.height = canvasSize;
+    context.canvas.width = canvasSize;
 
-    const colorScale = d3
-      .scaleLinear()
-      .domain([0, pixelSize])
-      .range(['#d73027', '#1a9850'])
-      .interpolate(d3.interpolateHcl);
-
-    let shape = 'square';
-    let scale = size / pixelSize;
-    let halfScale = 2;
     pixels.forEach(pixel => {
-      const {finder, value, x, y} = pixel;
-      let fillStyle = colorLight;
+      // default styles
+      const {isOuterEye, value, x, y} = pixel;
+      const colorScale = d3
+        .scaleLinear()
+        .domain([0, pixelSize])
+        .range(['#d73027', '#1a9850'])
+        .interpolate(d3.interpolateHcl);
+
+      let fillStyle = backgroundColors[0];
       if (value) {
-        fillStyle = colorDark;
-        if (finder) {
+        fillStyle = colorScale(x + y);
+        if (isOuterEye) {
           fillStyle = 'red';
         }
       }
-      ctx.fillStyle = fillStyle;
+      context.fillStyle = fillStyle;
 
-      switch (shape) {
-        case 'circle':
-          ctx.beginPath();
-          ctx.arc(x * scale, y * scale, halfScale, 0, 2 * Math.PI, true);
-          ctx.fill();
-          ctx.closePath();
-          break;
-        default:
-          ctx.fillRect(
-            x * scale - halfScale,
-            y * scale - halfScale,
-            scale,
-            scale,
-          );
-      }
+      renderers[renderer]({context, pixel, canvasSize, pixelSize});
     });
   }
 }

@@ -1,5 +1,5 @@
-import App from '../components/App';
-import Layout from '../components/Layout';
+import App from 'components/App';
+import Layout from 'components/Layout';
 import React from 'react';
 
 export default function() {
