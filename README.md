@@ -13,7 +13,6 @@ There are many ways to improve on this application! You can contribute towards:
 - QR input types
 - QR renderers
 - Backgrounds
-- Fonts
 - Music
 
 The above additions should involve simple code additions to corresponding folders. Please make a pull request and test your PR with Netlify.
@@ -36,12 +35,5 @@ TODO: update credits
   - blue:
   - art:
 
-- Fonts
-
-  - Bomb Font:
-  - Megrim:
-  - Most Wasted:
-  - Painterz:
-
-- Music
+* Music
   - [Adorable.wav](https://soundcloud.com/mrsjxn/adorable) by mrsjxn

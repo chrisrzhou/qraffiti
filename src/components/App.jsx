@@ -6,7 +6,7 @@ import {setRandomBackgroundImage} from 'redux/actions';
 class App extends React.PureComponent {
   componentDidMount() {
     const {setRandomBackgroundImage} = this.props;
-    this.backgroundInterval = setInterval(setRandomBackgroundImage, 8000);
+    this.backgroundInterval = setInterval(setRandomBackgroundImage, 10000);
   }
 
   componentWillUnmount() {

@@ -1,19 +1,11 @@
 import fonts from 'fonts';
 import {injectGlobal} from 'styled-components';
 
-const fontFaces = fonts
-  .map(font => {
-    return `
-      @font-face {
-        font-family: '${font.label}';
-        src: url("${font.ttf}");
-      }
-    `;
-  })
-  .join('\n');
-
 injectGlobal`
-  ${fontFaces}
+      @font-face {
+        font-family: 'Megrim';
+        src: url("${fonts.megrim}");
+      }
   body {
     background: black;
     color: white;

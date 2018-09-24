@@ -1,7 +1,6 @@
 import {Box, Flex} from 'rebass';
 
 import BackgroundSettings from './BackgroundSettings';
-import FontSettings from './FontSettings';
 import GraffitiText from 'components/ui/GraffitiText';
 import QRInput from './QRInput';
 import QRSettings from './QRSettings';
@@ -16,7 +15,6 @@ const tabs = [
   {label: 'spray', value: 'input'},
   {label: 'pattern', value: 'qr'},
   {label: 'wall', value: 'background'},
-  {label: 'font', value: 'font'},
 ];
 
 class HeaderTabs extends React.PureComponent {
@@ -98,7 +96,6 @@ class HeaderTabs extends React.PureComponent {
             {selectedTab === 'input' && <QRInput />}
             {selectedTab === 'qr' && <QRSettings />}
             {selectedTab === 'background' && <BackgroundSettings />}
-            {selectedTab === 'font' && <FontSettings />}
           </Flex>
         )}
       </Flex>

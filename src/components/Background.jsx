@@ -9,7 +9,7 @@ const Background = ({background, backgroundImage}) => (
       background: ${background};
       background-image: url(${backgroundImage});
       background-size: cover;
-      animation: fadein 4s ease-in-out;
+      animation: fadein 5s ease-in-out;
       height: 100vh;
       position: fixed;
       width: 100vw;

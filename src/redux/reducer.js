@@ -1,12 +1,9 @@
 import {actionTypes} from './actions';
 import backgrounds from 'backgrounds';
-import fonts from 'fonts';
 
 const getInitialState = () => ({
   backgrounds,
-  fonts,
   backgroundImage: backgrounds[0].value,
-  font: fonts[0].value,
   showSettings: false,
   inputData: {},
   inputString: 'https://qraffiti.chrisrzhou.io',
@@ -20,11 +17,6 @@ export default (state = getInitialState(), action) => {
       return {
         ...state,
         backgroundImage: payload.backgroundImage,
-      };
-    case actionTypes.SET_FONT:
-      return {
-        ...state,
-        font: payload.font,
       };
     case actionTypes.SET_QR_INPUT: {
       const {inputData, inputString, inputType} = payload;
