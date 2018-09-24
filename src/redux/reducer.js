@@ -7,7 +7,9 @@ const getInitialState = () => ({
   fonts,
   backgroundImage: backgrounds[0].value,
   font: fonts[0].value,
-  text: 'Hello world',
+  showSettings: false,
+  inputData: {},
+  inputString: 'https://qraffiti.chrisrzhou.io',
   inputType: 'url',
 });
 
@@ -23,6 +25,29 @@ export default (state = getInitialState(), action) => {
       return {
         ...state,
         font: payload.font,
+      };
+    case actionTypes.SET_QR_INPUT: {
+      const {inputData, inputString, inputType} = payload;
+      return {
+        ...state,
+        inputData: {
+          ...state.inputData,
+          [inputType]: inputData,
+        },
+        inputString,
+        inputType,
+        showSettings: false,
+      };
+    }
+    case actionTypes.SET_QR_INPUT_TYPE:
+      return {
+        ...state,
+        inputType: payload.inputType,
+      };
+    case actionTypes.SET_SHOW_SETTINGS:
+      return {
+        ...state,
+        showSettings: payload.showSettings,
       };
     default:
       return state;

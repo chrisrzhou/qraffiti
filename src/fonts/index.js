@@ -5,23 +5,23 @@ import PainterzTTF from './painterz/Painterz.ttf';
 
 export default [
   {
+    value: 'megrim',
     label: 'megrim',
     ttf: MegrimTTF,
-    value: 'megrim',
   },
   {
+    value: 'most-wasted',
     label: 'most-wasted',
     ttf: MostWastedTTF,
-    value: 'most-wasted',
   },
   {
+    value: 'bomb-font',
     label: 'bomb-font',
     ttf: BombFontTTF,
-    value: 'bomb-font',
   },
   {
+    value: 'painterz',
     label: 'painterz',
     ttf: PainterzTTF,
-    value: 'painterz',
   },
 ];

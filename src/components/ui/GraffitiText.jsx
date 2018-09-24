@@ -2,8 +2,8 @@ import React from 'react';
 import {Text} from 'rebass';
 import {connect} from 'react-redux';
 
-const GraffitiText = ({children, font, fontSize}) => (
-  <Text fontFamily={font} fontSize={fontSize} textAlign="center">
+const GraffitiText = ({color, children, font, fontSize}) => (
+  <Text color={color} fontFamily={font} fontSize={fontSize} textAlign="center">
     {children}
   </Text>
 );

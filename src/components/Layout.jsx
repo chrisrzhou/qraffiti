@@ -1,10 +1,12 @@
 import 'globalStyles';
 
 import Background from './Background';
+import {Flex} from 'rebass';
 import Header from 'components/header/Header';
 import Helmet from 'react-helmet';
 import {Provider} from 'react-redux';
 import React from 'react';
+import music from 'music/adorable.wav';
 import store from 'redux/store';
 
 export default ({children}) => (
@@ -24,8 +26,11 @@ export default ({children}) => (
       <div>
         <Background />
         <Header />
-        {children}
+        <Flex flexDirection="column" mt={[2, 5]}>
+          {children}
+        </Flex>
       </div>
     </Provider>
+    <audio id="music" loop src={music} autoPlay />
   </>
 );

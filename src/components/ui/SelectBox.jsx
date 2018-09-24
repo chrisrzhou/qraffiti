@@ -8,12 +8,11 @@ export default ({children, isSelected, onClick}) => (
     css={`
       ${isSelected ? isSelectedCSS : ''} cursor: pointer;
       :hover {
-        background: white;
+        background: #666;
         color: black;
       }
     `}
     p={1}
-    ml={3}
     onClick={onClick}>
     {children}
   </Box>

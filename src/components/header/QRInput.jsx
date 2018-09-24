@@ -1,29 +1,64 @@
-import {Flex} from 'rebass';
-import QRInputURL from 'components/inputs/QRInputURL';
-import React from 'react';
+import {Box, Flex} from 'rebass';
+import {setQRInput, setQRInputType} from 'redux/actions';
 
-export default class QRInput extends React.PureComponent {
-  render() {
-    const {inputType} = this.props;
-    switch (inputType) {
-      case 'url':
-      case 'text':
-      case 'email':
-      case 'phone':
-      case 'sms':
-      case 'location':
-      case 'facebook':
-      case 'twitter':
-      case 'youtube':
-      case 'wifi':
-      case 'bitcoin':
-      case 'event':
-      default:
-        return (
-          <Flex justifyContent="center">
-            <QRInputURL />
-          </Flex>
-        );
-    }
-  }
-}
+import InputLabel from 'components/ui/InputLabel';
+import React from 'react';
+import Selector from 'components/ui/Selector';
+import {connect} from 'react-redux';
+import inputs from 'qr/inputs';
+
+const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
+  const {fields, getInputString} = inputs[inputType];
+  return (
+    <Flex>
+      <Selector
+        items={Object.values(inputs).map(({label, value}) => ({
+          label,
+          value,
+        }))}
+        selectedItem={inputType}
+        onSelectItem={item => {
+          setQRInputType(item.value);
+        }}
+      />
+      <form
+        autoComplete="off"
+        onSubmit={e => {
+          e.preventDefault();
+          let data = {};
+          fields.forEach(({id}) => {
+            data[id] = e.target[id].value;
+          });
+          setQRInput(inputType, data, getInputString(data));
+        }}>
+        <Flex alignItems="flex-end" flexDirection="column">
+          {fields.map(({id, label, type}) => (
+            <InputLabel key={id} id={id} label={label} type={type} />
+          ))}
+          <Box mt={4}>
+            <button
+              style={{
+                background: 'white',
+                color: 'black',
+                outline: 'none',
+                padding: '4px 8px',
+              }}
+              type="submit">
+              SPRAY
+            </button>
+          </Box>
+        </Flex>
+      </form>
+    </Flex>
+  );
+};
+
+const mapStateToProps = state => ({
+  inputType: state.inputType,
+  inputData: state.inputData,
+});
+
+export default connect(
+  mapStateToProps,
+  {setQRInput, setQRInputType},
+)(QRInput);

@@ -12,8 +12,7 @@
     "clean": "rm -rf public",
     "lint": "eslint --ext .js --ext .jsx --fix src",
     "build": "gatsby build",
-    "dev": "gatsby develop",
-    "format": "prettier --write '**/*.js'"
+    "dev": "gatsby develop"
   },
   "dependencies": {
     "d3": "^5.7.0",
@@ -22,6 +21,7 @@
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-resolve-src": "^2.0.0-beta.1",
+    "keymirror": "^0.1.1",
     "qrcode": "^1.2.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
@@ -29,7 +29,6 @@
     "react-redux": "^5.0.7",
     "rebass": "^3.0.0-8",
     "redux": "^4.0.0",
-    "shortid": "^2.2.13",
     "styled-components": "^3.4.9"
   },
   "devDependencies": {

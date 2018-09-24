@@ -10,7 +10,7 @@ const fontFaces = fonts
       }
     `;
   })
-  .join(' ');
+  .join('\n');
 
 injectGlobal`
   ${fontFaces}
@@ -20,5 +20,9 @@ injectGlobal`
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 10px;
     margin: 0;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 `;

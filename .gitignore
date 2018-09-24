@@ -12,5 +12,4 @@ node_modules
 
 # project
 .cache
-build
 public

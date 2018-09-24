@@ -1,10 +1,14 @@
+import GraffitiText from 'components/ui/GraffitiText';
 import Layout from 'components/Layout';
+import QRCode from 'components/QRCode';
 import React from 'react';
 
 const NotFoundPage = () => (
   <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <GraffitiText color="red" fontSize={[50, 100]}>
+      404
+    </GraffitiText>
+    <QRCode input="404" />
   </Layout>
 );
 

@@ -1,12 +1,18 @@
 import * as d3 from 'd3';
 
 import React from 'react';
-import {getPixels} from 'pixels';
-import renderers from 'renderers';
+import {getPixels} from 'qr/pixels';
+import renderers from 'qr/renderers';
 
-export default class QRCanvas extends React.PureComponent {
+export default class QRCode extends React.PureComponent {
   static defaultProps = {
     renderer: 'base',
+    settings: {
+      canvasSize: 400,
+      backgroundColors: ['rgba(0, 0, 0, 0)'],
+      errorCorrectionLevel: 'L',
+      foregroundColors: ['black'],
+    },
   };
 
   componentDidMount() {
@@ -24,7 +30,7 @@ export default class QRCanvas extends React.PureComponent {
   }
 
   async _renderQRCode() {
-    const {settings, renderer, text} = this.props;
+    const {settings, renderer, inputString} = this.props;
     const {
       backgroundColors,
       canvasSize,
@@ -33,7 +39,7 @@ export default class QRCanvas extends React.PureComponent {
     } = settings;
     const context = this._canvas.getContext('2d');
 
-    const pixels = await getPixels(text, errorCorrectionLevel);
+    const pixels = await getPixels(inputString, errorCorrectionLevel);
     const pixelSize = Math.sqrt(pixels.length);
 
     context.clearRect(0, 0, context.canvas.height, context.canvas.width);
