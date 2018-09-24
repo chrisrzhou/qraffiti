@@ -4,6 +4,7 @@ import {setQRInput, setQRInputType} from 'redux/actions';
 import InputLabel from 'components/ui/InputLabel';
 import React from 'react';
 import Selector from 'components/ui/Selector';
+import {colors} from 'styles';
 import {connect} from 'react-redux';
 import inputs from 'qr/inputs';
 
@@ -38,8 +39,8 @@ const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
           <Box mt={4}>
             <button
               style={{
-                background: 'white',
-                color: 'black',
+                background: colors.white,
+                color: colors.black,
                 outline: 'none',
                 padding: '4px 8px',
               }}

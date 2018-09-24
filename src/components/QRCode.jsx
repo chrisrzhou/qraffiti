@@ -6,13 +6,11 @@ import renderers from 'qr/renderers';
 
 export default class QRCode extends React.PureComponent {
   static defaultProps = {
+    backgroundColors: ['rgba(0, 0, 0, 0)'],
+    canvasSize: 400,
+    errorCorrectionLevel: 'L',
+    foregroundColors: ['black'],
     renderer: 'base',
-    settings: {
-      canvasSize: 400,
-      backgroundColors: ['rgba(0, 0, 0, 0)'],
-      errorCorrectionLevel: 'L',
-      foregroundColors: ['black'],
-    },
   };
 
   componentDidMount() {
@@ -30,13 +28,15 @@ export default class QRCode extends React.PureComponent {
   }
 
   async _renderQRCode() {
-    const {settings, renderer, inputString} = this.props;
     const {
+      settings,
+      renderer,
+      inputString,
       backgroundColors,
       canvasSize,
       foregroundColors,
       errorCorrectionLevel,
-    } = settings;
+    } = this.props;
     const context = this._canvas.getContext('2d');
 
     const pixels = await getPixels(inputString, errorCorrectionLevel);

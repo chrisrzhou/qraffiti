@@ -1,6 +1,7 @@
 import {Box, Flex, Text} from 'rebass';
 
 import React from 'react';
+import {colors} from 'styles';
 
 const InputLabel = ({label, id, type}) => {
   const input =
@@ -31,14 +32,14 @@ const InputLabel = ({label, id, type}) => {
           flex-grow: 1;
           input,
           textarea {
-            background: rgba(255, 255, 255, 0.3);
+            background: ${colors.grayAlpha};
             border: none;
-            color: black;
+            color: ${colors.black};
             transition: all 0.5s ease-in-out;
             width: 100%;
 
             :focus {
-              background: rgba(255, 255, 255, 0.8);
+              background: ${colors.whiteAlpha};
               outline: none;
             }
           }

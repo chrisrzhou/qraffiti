@@ -1,6 +1,7 @@
 import {Box} from 'rebass';
 import React from 'react';
 import {connect} from 'react-redux';
+import {keyframes} from 'styles';
 
 const Background = ({background, backgroundImage}) => (
   <Box
@@ -14,15 +15,7 @@ const Background = ({background, backgroundImage}) => (
       position: fixed;
       width: 100vw;
       z-index: -1; /* always below */
-
-      @keyframes fadein {
-        from {
-          opacity: 0.1;
-        }
-        to {
-          opacity: 1;
-        }
-      }
+      ${keyframes.fadein};
     `}
   />
 );

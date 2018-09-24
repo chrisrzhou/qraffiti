@@ -1,4 +1,5 @@
 import {Box, Flex} from 'rebass';
+import {colors, keyframes} from 'styles';
 
 import BackgroundSettings from './BackgroundSettings';
 import GraffitiText from 'components/ui/GraffitiText';
@@ -8,8 +9,6 @@ import React from 'react';
 import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
 import {setShowSettings} from 'redux/actions';
-
-const headerBackground = 'rgba(0, 0, 0, 0.7)';
 
 const tabs = [
   {label: 'spray', value: 'input'},
@@ -27,12 +26,6 @@ class HeaderTabs extends React.PureComponent {
     const {showSettings, setShowSettings} = this.props;
     return (
       <Flex
-        css={`
-          opacity: 0.3;
-          :hover {
-            opacity: 1;
-          }
-        `}
         alignItems="center"
         justifyContent="center"
         mt={3}
@@ -54,24 +47,11 @@ class HeaderTabs extends React.PureComponent {
           <Flex
             css={`
               animation: dropdown 0.8s ease;
-              background: ${headerBackground};
+              background: ${colors.blackAlpha};
               border-top: 2px solid white;
               position: absolute;
               top: 100%;
-
-              @keyframes dropdown {
-                0% {
-                  transform: translateY(-100%);
-                  opacity: 0;
-                }
-                50% {
-                  transform: translateY(0);
-                }
-                100% {
-                  background: ${headerBackground};
-                  opacity: 1;
-                }
-              }
+              ${keyframes.dropdown};
             `}
             justifyContent="center"
             py={4}
@@ -86,7 +66,7 @@ class HeaderTabs extends React.PureComponent {
                 cursor: pointer;
                 position: absolute;
                 right: 8px;
-                top: 8px;
+                top: 16px;
               `}
               onClick={e => {
                 setShowSettings(false);

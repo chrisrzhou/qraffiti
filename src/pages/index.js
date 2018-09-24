@@ -1,9 +1,4 @@
-import App from 'components/App';
-import Layout from 'components/Layout';
 import React from 'react';
+import Root from 'components/Root';
 
-export default () => (
-  <Layout>
-    <App />
-  </Layout>
-);
+export default () => <Root />;
