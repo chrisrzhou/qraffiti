@@ -32,5 +32,5 @@ export const colors = {
   black: 'black',
   white: 'white',
   whiteAlpha: 'rgba(255, 255, 255, 0.8)',
-  grayAlpha: 'rgba(255, 255, 255, 0.3)',
+  grayAlpha: 'rgba(255, 255, 255, 0.4)',
 };

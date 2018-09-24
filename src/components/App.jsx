@@ -47,12 +47,7 @@ class App extends React.PureComponent {
           <Logo onClick={this._enablePreview} />
           <HeaderTabs />
         </Flex>
-        <Flex
-          css={`
-            animation: fadein 5s ease-in-out;
-            ${keyframes.fadein};
-          `}
-          justifyContent="center">
+        <Flex justifyContent="center">
           <QRCode renderer="base" inputString={inputString} />
         </Flex>
       </Flex>

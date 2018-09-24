@@ -3,19 +3,26 @@ import {Box, Flex, Text} from 'rebass';
 import React from 'react';
 import {colors} from 'styles';
 
-const InputLabel = ({label, id, type}) => {
+const InputLabel = ({label, id, placeholder, type, value}) => {
   const input =
     type === 'textarea' ? (
-      <textarea rows={5} id={id} />
+      <textarea
+        id={id}
+        defaultValue={value}
+        placeholder={placeholder}
+        rows={5}
+      />
     ) : (
-      <input id={id} type={type} />
+      <input
+        id={id}
+        step="any"
+        type={type}
+        defaultValue={value}
+        placeholder={placeholder}
+      />
     );
   return (
-    <Flex
-      alignItems="center"
-      justifyContent="space-between"
-      my={1}
-      width="100%">
+    <Flex justifyContent="space-between" my={1} width="100%">
       <label htmlFor={id}>
         <Text
           css={`
@@ -32,14 +39,13 @@ const InputLabel = ({label, id, type}) => {
           flex-grow: 1;
           input,
           textarea {
-            background: ${colors.grayAlpha};
+            background: ${colors.whiteAlpha};
             border: none;
             color: ${colors.black};
             transition: all 0.5s ease-in-out;
             width: 100%;
 
             :focus {
-              background: ${colors.whiteAlpha};
               outline: none;
             }
           }

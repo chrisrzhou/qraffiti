@@ -2,6 +2,21 @@
 
 Come chill and generate graffiti with QR codes.
 
+## TODOS
+- [ ] Add more music, `<AudioPlayer />` and "vibe" header tab, support pausing and picking songs
+- [ ] Allow background gradient selection for background
+- [ ] Save image (png/svg)
+- [ ] Work on Pattern tab
+  - Add logos
+  - Tweak eyes
+  - Tweak foreground
+  - Tweak background
+  - renderers explorer
+- [ ] Hydrate qr from URL
+- [ ] Update docs and README
+- [ ] Add About page (MDX)
+- [ ] Add footer (link to chrisrzhou.io)
+
 ## About
 
 TODO: Talk about QR codes

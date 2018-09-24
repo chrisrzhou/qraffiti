@@ -18,17 +18,19 @@ export default ({onExitPreview}) => (
     flexDirection="column"
     alignItems="center"
     justifyContent="center">
-    <Logo />
-    <Box
-      css={`
-        cursor: pointer;
-        :hover {
-          color: ${colors.secondary};
-        }
-      `}
-      mt={3}
-      onClick={onExitPreview}>
-      <GraffitiText>Spray it</GraffitiText>
+    <Box bg={colors.blackAlpha} p={4} width="100%">
+      <Logo />
+      <Box
+        css={`
+          cursor: pointer;
+          :hover {
+            color: ${colors.secondary};
+          }
+        `}
+        mt={3}
+        onClick={onExitPreview}>
+        <GraffitiText>Spray it</GraffitiText>
+      </Box>
     </Box>
   </Flex>
 );

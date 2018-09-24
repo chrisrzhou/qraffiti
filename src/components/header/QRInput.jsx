@@ -10,6 +10,7 @@ import inputs from 'qr/inputs';
 
 const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
   const {fields, getInputString} = inputs[inputType];
+  const data = inputData[inputType];
   return (
     <Flex>
       <Selector
@@ -32,9 +33,16 @@ const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
           });
           setQRInput(inputType, data, getInputString(data));
         }}>
-        <Flex alignItems="flex-end" flexDirection="column">
-          {fields.map(({id, label, type}) => (
-            <InputLabel key={id} id={id} label={label} type={type} />
+        <Flex alignItems="flex-end" flexDirection="column" width={[200, 300]}>
+          {fields.map(({id, label, placeholder, type}) => (
+            <InputLabel
+              key={id}
+              id={id}
+              label={label}
+              placeholder={placeholder}
+              type={type}
+              value={data ? data[id] : undefined}
+            />
           ))}
           <Box mt={4}>
             <button

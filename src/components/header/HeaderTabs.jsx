@@ -52,6 +52,7 @@ class HeaderTabs extends React.PureComponent {
               position: absolute;
               top: 100%;
               ${keyframes.dropdown};
+              z-index: 1;
             `}
             justifyContent="center"
             py={4}
