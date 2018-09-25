@@ -7,7 +7,7 @@ import React from 'react';
 import store from 'redux/store';
 
 export default ({children}) => (
-  <>
+  <div style={{overflow: 'hidden'}}>
     <Helmet
       title="qraffiti"
       meta={[
@@ -22,5 +22,5 @@ export default ({children}) => (
     <Provider store={store}>
       <App />
     </Provider>
-  </>
+  </div>
 );

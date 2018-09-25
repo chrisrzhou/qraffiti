@@ -1,10 +1,11 @@
 # Qraffiti
 
-Come chill and generate graffiti with QR codes.
+Generate graffiti with QR codes.
 
 ## TODOS
+
 - [ ] Add more music, `<AudioPlayer />` and "vibe" header tab, support pausing and picking songs
-- [ ] Allow background gradient selection for background
+- [x] Allow background gradient selection for background
 - [ ] Save image (png/svg)
 - [ ] Work on Pattern tab
   - Add logos

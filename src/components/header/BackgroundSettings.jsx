@@ -1,29 +1,70 @@
+import {setBackgroundColors, setBackgroundImage} from 'redux/actions';
+
+import ColorPicker from 'components/ui/ColorPicker';
+import {Flex} from 'rebass';
+import GraffitiText from 'components/ui/GraffitiText';
 import React from 'react';
-import Selector from 'components/ui/Selector';
+import Row from 'components/ui/Row';
+import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
-import {setBackgroundImage} from 'redux/actions';
+
+const getLinearGradient = colors => {
+  return `linear-gradient(90deg, ${colors[0]}, ${colors[1]})`;
+};
 
 const BackgroundSettings = ({
+  backgroundColors,
   backgroundImage,
   backgrounds,
+  setBackgroundColors,
   setBackgroundImage,
-}) => (
-  <Selector
-    label="background"
-    items={backgrounds}
-    selectedItem={backgroundImage}
-    onSelectItem={item => {
-      setBackgroundImage(item.value);
-    }}
-  />
-);
+}) => {
+  const [color1, color2] = backgroundColors;
+  return (
+    <Flex flexDirection="column">
+      <Flex flexDirection="column" mb={3}>
+        <GraffitiText>Gradient</GraffitiText>
+        <Row
+          items={[
+            <ColorPicker
+              color={color1}
+              onChange={color => {
+                const colors = [color, color2];
+                setBackgroundColors(colors);
+                setBackgroundImage(getLinearGradient(colors));
+              }}
+            />,
+            <ColorPicker
+              color={color2}
+              onChange={color => {
+                const colors = [color1, color];
+                setBackgroundColors(colors);
+                setBackgroundImage(getLinearGradient(colors));
+              }}
+            />,
+          ]}
+        />
+      </Flex>
+      {backgrounds.map(({label, value}) => (
+        <SelectBox
+          isSelected={backgroundImage === value}
+          onClick={e => {
+            setBackgroundImage(value);
+          }}>
+          <GraffitiText>{label}</GraffitiText>
+        </SelectBox>
+      ))}
+    </Flex>
+  );
+};
 
 const mapStateToProps = state => ({
+  backgroundColors: state.backgroundColors,
   backgroundImage: state.backgroundImage,
   backgrounds: state.backgrounds,
 });
 
 export default connect(
   mapStateToProps,
-  {setBackgroundImage},
+  {setBackgroundColors, setBackgroundImage},
 )(BackgroundSettings);

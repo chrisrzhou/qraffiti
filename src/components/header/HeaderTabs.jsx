@@ -6,6 +6,7 @@ import GraffitiText from 'components/ui/GraffitiText';
 import QRInput from './QRInput';
 import QRSettings from './QRSettings';
 import React from 'react';
+import Row from 'components/ui/Row';
 import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
 import {setShowSettings} from 'redux/actions';
@@ -25,24 +26,20 @@ class HeaderTabs extends React.PureComponent {
     const {selectedTab} = this.state;
     const {showSettings, setShowSettings} = this.props;
     return (
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        mt={3}
-        onMouseEnter={() => {
-          setShowSettings(true);
-        }}>
-        {tabs.map(({label, value}) => (
-          <Box key={value} mx={3}>
+      <Flex alignItems="center" justifyContent="center" mt={3}>
+        <Row
+          items={tabs.map(({label, value}) => (
             <SelectBox
               isSelected={showSettings && selectedTab === value}
               onClick={() => {
                 this.setState({selectedTab: value});
+                setShowSettings(true);
               }}>
               <GraffitiText>{label}</GraffitiText>
             </SelectBox>
-          </Box>
-        ))}
+          ))}
+          spacing={4}
+        />
         {showSettings && (
           <Flex
             css={`

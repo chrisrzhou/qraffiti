@@ -3,12 +3,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {keyframes} from 'styles';
 
-const Background = ({background, backgroundImage}) => (
+const Background = ({backgroundImage}) => (
   <Box
-    key={background + backgroundImage}
+    key={backgroundImage}
     css={`
-      background: ${background};
-      background-image: url(${backgroundImage});
+      background-image: ${backgroundImage};
       background-size: cover;
       animation: fadein 5s ease-in-out;
       height: 100vh;

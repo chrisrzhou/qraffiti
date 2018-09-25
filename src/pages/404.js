@@ -1,4 +1,6 @@
 export default () => {
-  window.location = '/';
+  if (typeof window !== 'undefined') {
+    window.location = '/';
+  }
   return null;
 };

@@ -18,4 +18,4 @@ export default [
   {label: 'flag', value: bg7},
   {label: 'blue', value: bg8},
   {label: 'art', value: bg9},
-];
+].map(background => ({...background, value: `url(${background.value})`}));

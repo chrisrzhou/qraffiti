@@ -12,7 +12,7 @@ const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
   const {fields, getInputString} = inputs[inputType];
   const data = inputData[inputType];
   return (
-    <Flex>
+    <Flex flexDirection={['column', 'row']}>
       <Selector
         items={Object.values(inputs).map(({label, value}) => ({
           label,
@@ -33,7 +33,7 @@ const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
           });
           setQRInput(inputType, data, getInputString(data));
         }}>
-        <Flex alignItems="flex-end" flexDirection="column" width={[200, 300]}>
+        <Flex alignItems="flex-end" flexDirection="column">
           {fields.map(({id, label, placeholder, type}) => (
             <InputLabel
               key={id}

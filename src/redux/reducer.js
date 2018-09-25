@@ -3,6 +3,7 @@ import backgrounds from 'backgrounds';
 
 const getInitialState = () => ({
   backgrounds,
+  backgroundColors: ['#D2E495', '#D590EA'],
   backgroundImage: backgrounds[0].value,
   showSettings: false,
   inputData: {},
@@ -13,10 +14,16 @@ const getInitialState = () => ({
 export default (state = getInitialState(), action) => {
   const {payload, type} = action;
   switch (type) {
+    case actionTypes.SET_BACKGROUND_COLORS:
+      return {
+        ...state,
+        backgroundColors: payload.backgroundColors,
+      };
     case actionTypes.SET_BACKGROUND_IMAGE:
       return {
         ...state,
         backgroundImage: payload.backgroundImage,
+        showSettings: false,
       };
     case actionTypes.SET_QR_INPUT: {
       const {inputData, inputString, inputType} = payload;

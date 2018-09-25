@@ -2,6 +2,7 @@ import backgrounds from 'backgrounds';
 import keymirror from 'keymirror';
 
 export const actionTypes = keymirror({
+  SET_BACKGROUND_COLORS: null,
   SET_BACKGROUND_IMAGE: null,
   SET_SHOW_SETTINGS: null,
   SET_QR_INPUT: null,
@@ -13,6 +14,11 @@ export const setRandomBackgroundImage = () => {
     backgrounds[Math.floor(Math.random() * backgrounds.length)].value;
   return setBackgroundImage(backgroundImage);
 };
+
+export const setBackgroundColors = backgroundColors => ({
+  type: actionTypes.SET_BACKGROUND_COLORS,
+  payload: {backgroundColors},
+});
 
 export const setBackgroundImage = backgroundImage => ({
   type: actionTypes.SET_BACKGROUND_IMAGE,

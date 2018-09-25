@@ -22,7 +22,7 @@ const InputLabel = ({label, id, placeholder, type, value}) => {
       />
     );
   return (
-    <Flex justifyContent="space-between" my={1} width="100%">
+    <Flex alignItems="center" justifyContent="space-between" my={1}>
       <label htmlFor={id}>
         <Text
           css={`
@@ -42,8 +42,10 @@ const InputLabel = ({label, id, placeholder, type, value}) => {
             background: ${colors.whiteAlpha};
             border: none;
             color: ${colors.black};
+            padding: 4px 8px;
+            resize: vertical;
             transition: all 0.5s ease-in-out;
-            width: 100%;
+            width: 150px;
 
             :focus {
               outline: none;
