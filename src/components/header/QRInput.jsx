@@ -1,10 +1,10 @@
 import {Box, Flex} from 'rebass';
 import {setQRInput, setQRInputType} from 'redux/actions';
 
+import Button from 'components/ui/Button';
 import InputLabel from 'components/ui/InputLabel';
 import React from 'react';
 import Selector from 'components/ui/Selector';
-import {colors} from 'styles';
 import {connect} from 'react-redux';
 import inputs from 'qr/inputs';
 
@@ -45,16 +45,7 @@ const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
             />
           ))}
           <Box mt={4}>
-            <button
-              style={{
-                background: colors.white,
-                color: colors.black,
-                outline: 'none',
-                padding: '4px 8px',
-              }}
-              type="submit">
-              SPRAY
-            </button>
+            <Button label="Spray it" type="submit" />
           </Box>
         </Flex>
       </form>

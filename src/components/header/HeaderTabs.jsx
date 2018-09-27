@@ -38,7 +38,7 @@ class HeaderTabs extends React.PureComponent {
               <GraffitiText>{label}</GraffitiText>
             </SelectBox>
           ))}
-          spacing={4}
+          spacing={3}
         />
         {showSettings && (
           <Flex

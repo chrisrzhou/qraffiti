@@ -6,6 +6,7 @@ import GraffitiText from 'components/ui/GraffitiText';
 import React from 'react';
 import Row from 'components/ui/Row';
 import SelectBox from 'components/ui/SelectBox';
+import backgrounds from 'backgrounds';
 import {connect} from 'react-redux';
 
 const getLinearGradient = colors => {
@@ -15,7 +16,6 @@ const getLinearGradient = colors => {
 const BackgroundSettings = ({
   backgroundColors,
   backgroundImage,
-  backgrounds,
   setBackgroundColors,
   setBackgroundImage,
 }) => {
@@ -47,6 +47,7 @@ const BackgroundSettings = ({
       </Flex>
       {backgrounds.map(({label, value}) => (
         <SelectBox
+          key={value}
           isSelected={backgroundImage === value}
           onClick={e => {
             setBackgroundImage(value);
@@ -61,7 +62,6 @@ const BackgroundSettings = ({
 const mapStateToProps = state => ({
   backgroundColors: state.backgroundColors,
   backgroundImage: state.backgroundImage,
-  backgrounds: state.backgrounds,
 });
 
 export default connect(

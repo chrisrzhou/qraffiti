@@ -26,7 +26,7 @@ export const keyframes = {
 };
 
 export const colors = {
-  primary: 'white',
+  primary: '#ccc',
   secondary: 'red',
   blackAlpha: 'rgba(0, 0, 0, 0.8)',
   black: 'black',

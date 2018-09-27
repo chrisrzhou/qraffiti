@@ -4,7 +4,7 @@ import React from 'react';
 import {colors} from 'styles';
 
 export default ({onClick}) => (
-  <Link to={'/'} onClick={onClick}>
+  <Link style={{textDecoration: 'none'}} to={'/'} onClick={onClick}>
     <GraffitiText fontSize={[70, 100]}>
       <span style={{color: colors.secondary}}>qr</span>
       affiti

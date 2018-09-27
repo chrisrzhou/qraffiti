@@ -4,7 +4,7 @@ Generate graffiti with QR codes.
 
 ## TODOS
 
-- [ ] Add more music, `<AudioPlayer />` and "vibe" header tab, support pausing and picking songs
+- [x] Add more music, `<AudioPlayer />` and "vibe" header tab, support pausing and picking songs
 - [x] Allow background gradient selection for background
 - [ ] Save image (png/svg)
 - [ ] Work on Pattern tab

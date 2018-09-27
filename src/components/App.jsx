@@ -2,13 +2,14 @@ import {colors, keyframes} from 'styles';
 
 import Background from './Background';
 import {Flex} from 'rebass';
+import Footer from './Footer';
 import HeaderTabs from 'components/header/HeaderTabs';
 import Logo from 'components/ui/Logo';
 import Preview from './Preview';
 import QRCode from './QRCode';
 import React from 'react';
 import {connect} from 'react-redux';
-import music from 'music/adorable.wav';
+import {setPlayMusic} from 'redux/actions';
 
 class App extends React.PureComponent {
   state = {
@@ -18,7 +19,12 @@ class App extends React.PureComponent {
   render() {
     const {inputString} = this.props;
     const content = this.state.preview ? (
-      <Preview onExitPreview={() => this.setState({preview: false})} />
+      <Preview
+        onExitPreview={() => {
+          this.setState({preview: false});
+          this.props.setPlayMusic(true);
+        }}
+      />
     ) : (
       <>
         <Flex
@@ -44,7 +50,7 @@ class App extends React.PureComponent {
       <div>
         <Background />
         {content}
-        <audio id="music" loop src={music} autoPlay />
+        <Footer />
       </div>
     );
   }
@@ -58,4 +64,7 @@ const mapStateToProps = state => ({
   inputString: state.inputString,
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(
+  mapStateToProps,
+  {setPlayMusic},
+)(App);

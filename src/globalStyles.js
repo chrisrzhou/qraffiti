@@ -16,7 +16,6 @@ injectGlobal`
     overflow: hidden;
     a {
       color: ${colors.primary};
-      text-decoration: none;
     }
   }
 `;

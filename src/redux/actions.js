@@ -2,11 +2,17 @@ import backgrounds from 'backgrounds';
 import keymirror from 'keymirror';
 
 export const actionTypes = keymirror({
+  SET_PLAY_MUSIC: null,
   SET_BACKGROUND_COLORS: null,
   SET_BACKGROUND_IMAGE: null,
   SET_SHOW_SETTINGS: null,
   SET_QR_INPUT: null,
   SET_QR_INPUT_TYPE: null,
+});
+
+export const setPlayMusic = playMusic => ({
+  type: actionTypes.SET_PLAY_MUSIC,
+  payload: {playMusic},
 });
 
 export const setRandomBackgroundImage = () => {

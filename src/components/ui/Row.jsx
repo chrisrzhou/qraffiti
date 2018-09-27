@@ -5,7 +5,7 @@ import React from 'react';
 const Row = ({items, spacing, ...otherProps}) => (
   <Flex alignItems="center" {...otherProps}>
     {items.map((item, i) => (
-      <Box mr={spacing} key={i}>
+      <Box mx={spacing} key={i}>
         {item}
       </Box>
     ))}

@@ -33,7 +33,8 @@ class Preview extends React.PureComponent {
         `}
         flexDirection="column"
         alignItems="center"
-        justifyContent="center">
+        justifyContent="center"
+        onClick={onExitPreview}>
         <Box bg={colors.blackAlpha} p={5} width="100%">
           <Logo />
           <Box
@@ -43,8 +44,7 @@ class Preview extends React.PureComponent {
                 color: ${colors.secondary};
               }
             `}
-            mt={3}
-            onClick={onExitPreview}>
+            mt={3}>
             <GraffitiText>Spray it</GraffitiText>
           </Box>
         </Box>

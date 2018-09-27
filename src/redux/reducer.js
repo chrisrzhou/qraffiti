@@ -2,9 +2,9 @@ import {actionTypes} from './actions';
 import backgrounds from 'backgrounds';
 
 const getInitialState = () => ({
-  backgrounds,
   backgroundColors: ['#D2E495', '#D590EA'],
   backgroundImage: backgrounds[0].value,
+  playMusic: false,
   showSettings: false,
   inputData: {},
   inputString: 'https://qraffiti.chrisrzhou.io',
@@ -14,6 +14,11 @@ const getInitialState = () => ({
 export default (state = getInitialState(), action) => {
   const {payload, type} = action;
   switch (type) {
+    case actionTypes.SET_PLAY_MUSIC:
+      return {
+        ...state,
+        playMusic: payload.playMusic,
+      };
     case actionTypes.SET_BACKGROUND_COLORS:
       return {
         ...state,
