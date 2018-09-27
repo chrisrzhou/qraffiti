@@ -9,18 +9,20 @@
   "author": "Chris Zhou <christopher.r.zhou@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf public",
+    "clean": "rm -rf public .cache",
     "lint": "eslint --ext .js --ext .jsx --fix src",
     "build": "gatsby build",
     "dev": "gatsby develop"
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^1.7.1",
     "d3": "^5.7.0",
     "gatsby": "^2.0.0",
     "gatsby-plugin-manifest": "^2.0.2",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-resolve-src": "^2.0.0-beta.1",
+    "gatsby-plugin-styled-components": "^3.0.0",
     "keymirror": "^0.1.1",
     "qrcode": "^1.2.2",
     "react": "^16.5.1",
