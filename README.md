@@ -16,7 +16,7 @@ Generate graffiti with QR codes.
 - [ ] Hydrate qr from URL
 - [ ] Update docs and README
 - [ ] Add About page (MDX)
-- [ ] Add footer (link to chrisrzhou.io)
+- [x] Add footer (link to chrisrzhou.io)
 
 ## About
 

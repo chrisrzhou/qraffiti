@@ -1,4 +1,5 @@
 import {Flex} from 'rebass';
+import {Logo} from '@chrisrzhou/ui';
 import Music from './Music';
 import React from 'react';
 import {colors} from 'styles';
@@ -16,7 +17,7 @@ export default () => (
     bg={colors.blackAlpha}
     justifyContent="space-between"
     p={2}>
-    <a href="https://chrisrzhou.io">chrisrzhou.io</a>
+    <Logo size={20} />
     <Music />
     <div>support</div>
   </Flex>
