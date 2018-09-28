@@ -52,7 +52,8 @@ class HeaderTabs extends React.PureComponent {
               z-index: 1;
             `}
             justifyContent="center"
-            py={4}
+            pb={5}
+            pt={3}
             width="100%"
             onMouseLeave={e => {
               if (e.clientY > e.target.getBoundingClientRect().bottom) {

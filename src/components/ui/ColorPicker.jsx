@@ -1,6 +1,6 @@
 import {Box} from 'rebass';
-import {CompactPicker} from 'react-color';
 import React from 'react';
+import {SketchPicker} from 'react-color';
 import {colors} from 'styles';
 
 export default class ColorPicker extends React.PureComponent {
@@ -55,7 +55,7 @@ export default class ColorPicker extends React.PureComponent {
               `}
               onClick={this.handleClose}
             />
-            <CompactPicker color={color} onChange={this.handleChange} />
+            <SketchPicker color={color} onChange={this.handleChange} />
           </Box>
         )}
       </div>

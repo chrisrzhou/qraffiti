@@ -17,7 +17,7 @@ class App extends React.PureComponent {
   };
 
   render() {
-    const {inputString} = this.props;
+    const {eyeColors, inputString, pixelColors} = this.props;
     const content = this.state.preview ? (
       <Preview
         onExitPreview={() => {
@@ -42,7 +42,12 @@ class App extends React.PureComponent {
           <HeaderTabs />
         </Flex>
         <Flex justifyContent="center" mt={[2, 4]}>
-          <QRCode renderer="base" inputString={inputString} />
+          <QRCode
+            eyeColors={eyeColors}
+            inputString={inputString}
+            pixelColors={pixelColors}
+            renderer="base"
+          />
         </Flex>
       </>
     );
@@ -61,7 +66,9 @@ class App extends React.PureComponent {
 }
 
 const mapStateToProps = state => ({
+  eyeColors: state.eyeColors,
   inputString: state.inputString,
+  pixelColors: state.pixelColors,
 });
 
 export default connect(

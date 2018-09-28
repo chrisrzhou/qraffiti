@@ -6,10 +6,10 @@ import renderers from 'qr/renderers';
 
 export default class QRCode extends React.PureComponent {
   static defaultProps = {
-    backgroundColors: ['rgba(0, 0, 0, 0)'],
     canvasSize: 400,
     errorCorrectionLevel: 'L',
-    foregroundColors: ['black'],
+    eyeColors: ['#000000', '#000000'],
+    pixelColors: ['#000000', '#000000'],
     renderer: 'base',
   };
 
@@ -29,13 +29,12 @@ export default class QRCode extends React.PureComponent {
 
   async _renderQRCode() {
     const {
-      settings,
-      renderer,
-      inputString,
-      backgroundColors,
       canvasSize,
-      foregroundColors,
       errorCorrectionLevel,
+      eyeColors,
+      inputString,
+      pixelColors,
+      renderer,
     } = this.props;
     const context = this._canvas.getContext('2d');
 
@@ -48,23 +47,33 @@ export default class QRCode extends React.PureComponent {
 
     pixels.forEach(pixel => {
       // default styles
-      const {isOuterEye, value, x, y} = pixel;
+      const {isInnerEye, isOuterEye, value, x, y} = pixel;
       const colorScale = d3
         .scaleLinear()
         .domain([0, pixelSize])
-        .range(['#d73027', '#1a9850'])
+        .range(pixelColors)
         .interpolate(d3.interpolateHcl);
 
-      let fillStyle = backgroundColors[0];
+      let fillStyle = 'rgba(0, 0, 0, 0)';
       if (value) {
         fillStyle = colorScale(x + y);
+        if (isInnerEye) {
+          fillStyle = eyeColors[0];
+        }
         if (isOuterEye) {
-          fillStyle = 'red';
+          fillStyle = eyeColors[1];
         }
       }
       context.fillStyle = fillStyle;
 
-      renderers[renderer]({context, pixel, canvasSize, pixelSize});
+      renderers[renderer]({
+        context,
+        pixel,
+        canvasSize,
+        pixelSize,
+        eyeColors,
+        pixelColors,
+      });
     });
   }
 }

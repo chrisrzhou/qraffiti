@@ -8,6 +8,8 @@ export const actionTypes = keymirror({
   SET_SHOW_SETTINGS: null,
   SET_QR_INPUT: null,
   SET_QR_INPUT_TYPE: null,
+  SET_QR_EYE_COLORS: null,
+  SET_QR_PIXEL_COLORS: null,
 });
 
 export const setPlayMusic = playMusic => ({
@@ -39,6 +41,16 @@ export const setQRInput = (inputType, inputData, inputString) => ({
 export const setQRInputType = inputType => ({
   type: actionTypes.SET_QR_INPUT_TYPE,
   payload: {inputType},
+});
+
+export const setQREyeColors = eyeColors => ({
+  type: actionTypes.SET_QR_EYE_COLORS,
+  payload: {eyeColors},
+});
+
+export const setQRPixelColors = pixelColors => ({
+  type: actionTypes.SET_QR_PIXEL_COLORS,
+  payload: {pixelColors},
 });
 
 export const setShowSettings = showSettings => ({

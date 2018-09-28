@@ -9,6 +9,8 @@ const getInitialState = () => ({
   inputData: {},
   inputString: 'https://qraffiti.chrisrzhou.io',
   inputType: 'url',
+  eyeColors: ['#ff0000', '#9b1b1b'],
+  pixelColors: ['#210c60', '#4b2bad'],
 });
 
 export default (state = getInitialState(), action) => {
@@ -47,6 +49,16 @@ export default (state = getInitialState(), action) => {
       return {
         ...state,
         inputType: payload.inputType,
+      };
+    case actionTypes.SET_QR_EYE_COLORS:
+      return {
+        ...state,
+        eyeColors: payload.eyeColors,
+      };
+    case actionTypes.SET_QR_PIXEL_COLORS:
+      return {
+        ...state,
+        pixelColors: payload.pixelColors,
       };
     case actionTypes.SET_SHOW_SETTINGS:
       return {
