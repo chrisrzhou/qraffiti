@@ -14,7 +14,8 @@ export default ({children}) => (
         {name: 'description', content: 'Graffit with QR Codes'},
         {
           name: 'keywords',
-          content: 'qr, graffiti, chrisrzhou, viz, web, design',
+          content:
+            'qr, qrcode, generator, graffiti, ui, uiux, design, gatsby, chrisrzhou, art',
         },
       ]}>
       <html lang="en" />

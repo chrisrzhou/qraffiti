@@ -1,5 +1,3 @@
-import 'globalStyles';
-
 import {Box, Flex} from 'rebass';
 import {colors, keyframes} from 'styles';
 

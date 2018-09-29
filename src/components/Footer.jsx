@@ -1,4 +1,5 @@
-import {Flex} from 'rebass';
+import {Box, Flex, Text} from 'rebass';
+
 import {Logo} from '@chrisrzhou/ui';
 import Music from './Music';
 import React from 'react';
@@ -15,10 +16,17 @@ export default () => (
     `}
     alignItems="center"
     bg={colors.blackAlpha}
-    justifyContent="space-between"
-    p={2}>
-    <Logo size={20} />
-    <Music />
-    <div>support</div>
+    p={3}>
+    <Box width={1 / 3}>
+      <Logo size={20} />
+    </Box>
+    <Flex justifyContent="center" width={1 / 3}>
+      <Music />
+    </Flex>
+    <Box width={1 / 3}>
+      <Text textAlign="right">
+        <a href="https://github.com/chrisrzhou/qraffiti">Github</a>
+      </Text>
+    </Box>
   </Flex>
 );

@@ -1,11 +1,11 @@
+import MegrimTTF from 'fonts/Megrim.ttf';
 import {colors} from 'styles';
-import fonts from 'fonts';
 import {injectGlobal} from 'styled-components';
 
 injectGlobal`
   @font-face {
     font-family: 'Megrim';
-    src: url("${fonts.megrim}");
+    src: url("${MegrimTTF}");
   }
   body {
     background: ${colors.black};

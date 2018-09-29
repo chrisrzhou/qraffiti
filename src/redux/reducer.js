@@ -9,8 +9,8 @@ const getInitialState = () => ({
   inputData: {},
   inputString: 'https://qraffiti.chrisrzhou.io',
   inputType: 'url',
-  eyeColors: ['#ff0000', '#9b1b1b'],
-  pixelColors: ['#210c60', '#4b2bad'],
+  eyeColors: ['#9b1b1b', '#ff0000'],
+  pixelColors: ['#210c60', '#0e685b'],
 });
 
 export default (state = getInitialState(), action) => {

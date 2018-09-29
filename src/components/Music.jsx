@@ -38,8 +38,8 @@ const MusicIcon = ({type, onClick}) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
-        width="16"
-        height="16"
+        width="12"
+        height="12"
         fill="none"
         stroke="currentcolor"
         strokeWidth="3">
@@ -66,7 +66,15 @@ class Music extends React.PureComponent {
     const {track} = this.state;
     const {artist, name, src, url} = music[track];
     return (
-      <Box>
+      <Box
+        css={`
+          position: relative;
+          :hover {
+            .song-details {
+              opacity: 1;
+            }
+          }
+        `}>
         <Row
           items={[
             <MusicIcon type="previous" onClick={this._previous} />,
@@ -79,7 +87,18 @@ class Music extends React.PureComponent {
         />
         <audio src={src} ref={ref => (this.audio = ref)} />
         {playMusic && (
-          <Text fontSize="8px" mt={2} textAlign="center">
+          <Text
+            className="song-details"
+            css={`
+              left: 0;
+              opacity: 0;
+              position: absolute;
+              right: 0;
+              top: 12px;
+            `}
+            fontSize="8px"
+            mt={2}
+            textAlign="center">
             Playing{' '}
             <a href={url} target="_blank">
               {name}
