@@ -7,15 +7,14 @@ Generate graffiti with QR codes.
 - [x] Add more music, `<AudioPlayer />` and "vibe" header tab, support pausing and picking songs
 - [x] Allow background gradient selection for background
 - [ ] Save image (png/svg)
-- [ ] Work on Pattern tab
+- [x] Work on Pattern tab
   - Add logos
-  - Tweak eyes
-  - Tweak foreground
-  - Tweak background
+  - [x] Tweak eyes
+  - [x] Tweak foreground
+  - [x] Tweak background
   - renderers explorer
 - [ ] Hydrate qr from URL
 - [ ] Update docs and README
-- [ ] Add About page (MDX)
 - [x] Add footer (link to chrisrzhou.io)
 
 ## About

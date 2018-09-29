@@ -2,15 +2,16 @@ import * as d3 from 'd3';
 
 import React from 'react';
 import {getPixels} from 'qr/pixels';
-import renderers from 'qr/renderers';
+import {getRenderer} from 'qr/renderers';
 
 export default class QRCode extends React.PureComponent {
   static defaultProps = {
     canvasSize: 400,
     errorCorrectionLevel: 'L',
     eyeColors: ['#000000', '#000000'],
+    eyePattern: 'base',
     pixelColors: ['#000000', '#000000'],
-    renderer: 'base',
+    pixelPattern: 'round',
   };
 
   componentDidMount() {
@@ -32,48 +33,64 @@ export default class QRCode extends React.PureComponent {
       canvasSize,
       errorCorrectionLevel,
       eyeColors,
+      eyePattern,
       inputString,
       pixelColors,
-      renderer,
+      pixelPattern,
     } = this.props;
-    const context = this._canvas.getContext('2d');
-
+    // get pixels
     const pixels = await getPixels(inputString, errorCorrectionLevel);
-    const pixelSize = Math.sqrt(pixels.length);
 
+    // clear context
+    const context = this._canvas.getContext('2d');
     context.clearRect(0, 0, context.canvas.height, context.canvas.width);
     context.canvas.height = canvasSize;
     context.canvas.width = canvasSize;
 
-    pixels.forEach(pixel => {
-      // default styles
-      const {isInnerEye, isOuterEye, value, x, y} = pixel;
-      const colorScale = d3
-        .scaleLinear()
-        .domain([0, pixelSize])
-        .range(pixelColors)
-        .interpolate(d3.interpolateHcl);
+    // render loop
+    for (let x = 0; x < pixels.length; x++) {
+      for (let y = 0; y < pixels.length; y++) {
+        const pixel = pixels[x][y];
+        const {isInnerEye, isOuterEye, value} = pixel;
+        const colorScale = d3
+          .scaleLinear()
+          .domain([0, pixels.length])
+          .range(pixelColors)
+          .interpolate(d3.interpolateHcl);
 
-      let fillStyle = 'rgba(0, 0, 0, 0)';
-      if (value) {
-        fillStyle = colorScale(x + y);
-        if (isInnerEye) {
-          fillStyle = eyeColors[0];
-        }
-        if (isOuterEye) {
-          fillStyle = eyeColors[1];
+        // render default styles
+        let fillStyle = 'rgba(0, 0, 0, 0)';
+        if (value) {
+          fillStyle = colorScale(x + y);
+          if (!isInnerEye && !isOuterEye) {
+            context.fillStyle = fillStyle;
+            getRenderer(eyePattern)({
+              context,
+              pixel,
+              pixels,
+              canvasSize,
+              eyeColors,
+              pixelColors,
+            });
+          } else {
+            if (isInnerEye) {
+              fillStyle = eyeColors[0];
+            }
+            if (isOuterEye) {
+              fillStyle = eyeColors[1];
+            }
+            context.fillStyle = fillStyle;
+            getRenderer(pixelPattern)({
+              context,
+              pixel,
+              pixels,
+              canvasSize,
+              eyeColors,
+              pixelColors,
+            });
+          }
         }
       }
-      context.fillStyle = fillStyle;
-
-      renderers[renderer]({
-        context,
-        pixel,
-        canvasSize,
-        pixelSize,
-        eyeColors,
-        pixelColors,
-      });
-    });
+    }
   }
 }

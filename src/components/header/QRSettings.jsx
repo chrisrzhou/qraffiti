@@ -1,10 +1,11 @@
 import {Flex} from 'rebass';
 import QRColorSettings from './QRColorSettings';
+import QRPatternSettings from './QRPatternSettings';
 import React from 'react';
 import Selector from 'components/ui/Selector';
 
 const TABS = [
-  {label: 'Design', value: 'design'},
+  {label: 'Patterns', value: 'patterns'},
   {label: 'Colors', value: 'colors'},
   {label: 'Logo', value: 'logo'},
 ];
@@ -20,6 +21,9 @@ export default class extends React.PureComponent {
     switch (selectedTab) {
       case 'colors':
         content = <QRColorSettings />;
+        break;
+      case 'patterns':
+        content = <QRPatternSettings />;
         break;
       default:
         content = <div>adfadf</div>;

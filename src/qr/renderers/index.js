@@ -1,5 +1,19 @@
 import base from './base';
+import round from './round';
 
-export default {
-  base,
+const renderers = {
+  base: {
+    label: 'Base',
+    value: 'base',
+    renderer: base,
+  },
+  round: {
+    label: 'Round',
+    value: 'round',
+    renderer: round,
+  },
 };
+
+export const getRenderer = pattern => renderers[pattern].renderer;
+
+export default renderers;

@@ -17,7 +17,13 @@ class App extends React.PureComponent {
   };
 
   render() {
-    const {eyeColors, inputString, pixelColors} = this.props;
+    const {
+      eyeColors,
+      eyePattern,
+      inputString,
+      pixelColors,
+      pixelPattern,
+    } = this.props;
     const content = this.state.preview ? (
       <Preview
         onExitPreview={() => {
@@ -46,7 +52,8 @@ class App extends React.PureComponent {
             eyeColors={eyeColors}
             inputString={inputString}
             pixelColors={pixelColors}
-            renderer="base"
+            pixelPattern={pixelPattern}
+            eyePattern={eyePattern}
           />
         </Flex>
       </>
@@ -67,8 +74,10 @@ class App extends React.PureComponent {
 
 const mapStateToProps = state => ({
   eyeColors: state.eyeColors,
+  eyePattern: state.eyePattern,
   inputString: state.inputString,
   pixelColors: state.pixelColors,
+  pixelPattern: state.pixelPattern,
 });
 
 export default connect(

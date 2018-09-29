@@ -13,7 +13,7 @@ import {setShowSettings} from 'redux/actions';
 
 const tabs = [
   {label: 'spray', value: 'input'},
-  {label: 'pattern', value: 'qr'},
+  {label: 'design', value: 'qr'},
   {label: 'wall', value: 'background'},
 ];
 
