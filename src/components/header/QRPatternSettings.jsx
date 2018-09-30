@@ -23,6 +23,7 @@ const QRPatternSettings = ({
           isSelected={pattern === value}
           label={label}
           renderer={renderer}
+          type={type}
           onClick={() => setPattern(value)}
         />
       ))}

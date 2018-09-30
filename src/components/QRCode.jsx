@@ -6,7 +6,6 @@ import {getRenderer} from 'qr/patterns';
 
 export default class QRCode extends React.PureComponent {
   static defaultProps = {
-    canvasSize: 400,
     errorCorrectionLevel: 'L',
     eyeColors: ['#000000', '#000000'],
     eyePattern: 'base',
@@ -14,12 +13,22 @@ export default class QRCode extends React.PureComponent {
     pixelPattern: 'base',
   };
 
+  state = {
+    width: 0,
+  };
+
   componentDidMount() {
     this._renderQRCode();
+    this._resize();
+    window.addEventListener('resize', this._resize);
   }
 
   componentDidUpdate() {
     this._renderQRCode();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._resize);
   }
 
   render() {
@@ -29,8 +38,8 @@ export default class QRCode extends React.PureComponent {
   }
 
   async _renderQRCode() {
+    const {canvasSize} = this.state;
     const {
-      canvasSize,
       errorCorrectionLevel,
       eyeColors,
       eyePattern,
@@ -93,4 +102,8 @@ export default class QRCode extends React.PureComponent {
       }
     }
   }
+
+  _resize = () => {
+    this.setState({canvasSize: Math.min(400, window.innerWidth)});
+  };
 }

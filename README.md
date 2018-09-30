@@ -14,6 +14,7 @@ Generate graffiti with QR codes.
   - renderers explorer
 - [ ] Hydrate qr from URL
 - [ ] Update backgrounds
+- [ ] upload image
 - [ ] Update docs and README
 - [ ] Download/Share image
 - [x] Add footer (link to chrisrzhou.io)

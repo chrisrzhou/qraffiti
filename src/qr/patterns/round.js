@@ -1,4 +1,4 @@
-export default ({
+export default (spaceProportion = 0) => ({
   context,
   pixel,
   pixels,
@@ -6,13 +6,14 @@ export default ({
   eyeColors,
   pixelColors,
 }) => {
-  const size = canvasSize / pixels.length;
   const {x, y} = pixel;
+  const size = canvasSize / pixels.length;
+
   context.beginPath();
   context.arc(
     x * size + size / 2,
     y * size + size / 2,
-    size / 2,
+    ((1 - spaceProportion) * size) / 2,
     0,
     2 * Math.PI,
     false,

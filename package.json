@@ -18,7 +18,7 @@
     "@chrisrzhou/ui": "https://github.com/chrisrzhou/ui",
     "babel-plugin-styled-components": "^1.7.1",
     "d3": "^5.7.0",
-    "gatsby": "^2.0.0",
+    "gatsby": "^2.0.10",
     "gatsby-plugin-manifest": "^2.0.2",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",

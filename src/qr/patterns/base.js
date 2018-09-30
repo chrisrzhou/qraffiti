@@ -6,7 +6,8 @@ export default ({
   eyeColors,
   pixelColors,
 }) => {
-  const size = canvasSize / pixels.length;
   const {x, y} = pixel;
+  const size = canvasSize / pixels.length;
+
   context.fillRect(x * size, y * size, size, size);
 };

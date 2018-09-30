@@ -4,7 +4,7 @@ import React from 'react';
 import SelectBox from 'components/ui/SelectBox';
 
 const getPixels = type => {
-  if (type === 'eye') {
+  if (type === 'eyes') {
     return [
       [1, 1, 1, 1, 1, 1, 1],
       [1, 0, 0, 0, 0, 0, 1],
@@ -16,13 +16,13 @@ const getPixels = type => {
     ];
   } else {
     return [
-      [1, 1, 1, 1, 1, 1, 1],
-      [1, 0, 0, 0, 0, 0, 1],
-      [1, 0, 1, 1, 1, 0, 1],
-      [1, 0, 1, 1, 1, 0, 1],
-      [1, 0, 1, 1, 1, 0, 1],
-      [1, 0, 0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1, 1, 1],
+      [0, 0, 1, 0, 0, 0, 1],
+      [1, 1, 1, 0, 1, 1, 1],
+      [0, 1, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 1, 1, 0],
+      [0, 1, 0, 0, 1, 0, 1],
+      [0, 1, 1, 0, 0, 1, 1],
+      [0, 0, 0, 1, 1, 0, 1],
     ];
   }
 };
@@ -31,7 +31,7 @@ const canvasSize = 40;
 
 export default class QRPatternPreview extends React.PureComponent {
   static defaultProps = {
-    type: 'eye',
+    type: 'eyes',
   };
 
   componentDidMount() {
