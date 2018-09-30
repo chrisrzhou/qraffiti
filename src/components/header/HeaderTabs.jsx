@@ -3,7 +3,7 @@ import {colors, keyframes} from 'styles';
 
 import BackgroundSettings from './BackgroundSettings';
 import GraffitiText from 'components/ui/GraffitiText';
-import QRInput from './QRInput';
+import QRInputSettings from './QRInputSettings';
 import QRSettings from './QRSettings';
 import React from 'react';
 import Row from 'components/ui/Row';
@@ -72,7 +72,7 @@ class HeaderTabs extends React.PureComponent {
               }}>
               <GraffitiText>CLOSE</GraffitiText>
             </Box>
-            {selectedTab === 'input' && <QRInput />}
+            {selectedTab === 'input' && <QRInputSettings />}
             {selectedTab === 'qr' && <QRSettings />}
             {selectedTab === 'background' && <BackgroundSettings />}
           </Flex>

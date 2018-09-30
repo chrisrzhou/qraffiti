@@ -1,7 +1,7 @@
 import base from './base';
 import round from './round';
 
-const renderers = {
+const patterns = {
   base: {
     label: 'Base',
     value: 'base',
@@ -14,6 +14,6 @@ const renderers = {
   },
 };
 
-export const getRenderer = pattern => renderers[pattern].renderer;
+export const getRenderer = pattern => patterns[pattern].renderer;
 
-export default renderers;
+export default patterns;

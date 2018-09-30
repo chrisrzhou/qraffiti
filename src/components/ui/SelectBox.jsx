@@ -11,6 +11,7 @@ export default ({children, isSelected, onClick}) => (
   <Box
     css={`
       ${isSelected ? isSelectedCSS : ''} cursor: pointer;
+      height: fit-content;
       :hover {
         background: ${colors.grayAlpha};
         color: ${colors.black};

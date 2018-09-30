@@ -33,7 +33,7 @@ const QRInput = ({inputData, inputType, setQRInput, setQRInputType}) => {
           });
           setQRInput(inputType, data, getInputString(data));
         }}>
-        <Flex alignItems="flex-end" flexDirection="column" ml={[0, 3]} mt={1}>
+        <Flex alignItems="flex-end" flexDirection="column">
           {fields.map(({id, label, placeholder, type}) => (
             <InputLabel
               key={id}

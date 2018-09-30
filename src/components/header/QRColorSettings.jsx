@@ -13,7 +13,7 @@ const QRColorSettings = ({
   setQRPixelColors,
 }) => {
   return (
-    <Flex flexDirection="column" mb={3}>
+    <Flex flexDirection="column">
       <Text>Pixel colors</Text>
       <Row
         items={[

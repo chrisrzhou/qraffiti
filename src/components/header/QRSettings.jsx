@@ -5,14 +5,15 @@ import React from 'react';
 import Selector from 'components/ui/Selector';
 
 const TABS = [
-  {label: 'Patterns', value: 'patterns'},
+  {label: 'Patterns', value: 'pixels'},
+  {label: 'Eyes', value: 'eyes'},
   {label: 'Colors', value: 'colors'},
   {label: 'Logo', value: 'logo'},
 ];
 
 export default class extends React.PureComponent {
   state = {
-    selectedTab: 'colors',
+    selectedTab: 'pixels',
   };
 
   render() {
@@ -22,8 +23,11 @@ export default class extends React.PureComponent {
       case 'colors':
         content = <QRColorSettings />;
         break;
-      case 'patterns':
-        content = <QRPatternSettings />;
+      case 'pixels':
+        content = <QRPatternSettings type="pixels" />;
+        break;
+      case 'eyes':
+        content = <QRPatternSettings type="eyes" />;
         break;
       default:
         content = <div>adfadf</div>;
@@ -35,7 +39,7 @@ export default class extends React.PureComponent {
           selectedItem={selectedTab}
           onSelectItem={this._onSelectTab}
         />
-        <Flex justifyContent="center" ml={[0, 3]} mt={1} width={250}>
+        <Flex justifyContent="center" width={250}>
           {content}
         </Flex>
       </Flex>

@@ -8,5 +8,14 @@ export default ({
 }) => {
   const size = canvasSize / pixels.length;
   const {x, y} = pixel;
-  context.fillRect(x * size - size / 2, y * size - size / 2, size, size);
+  context.beginPath();
+  context.arc(
+    x * size + size / 2,
+    y * size + size / 2,
+    size / 2,
+    0,
+    2 * Math.PI,
+    false,
+  );
+  context.fill();
 };
