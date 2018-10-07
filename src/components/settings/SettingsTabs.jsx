@@ -4,6 +4,7 @@ import React from 'react';
 import Row from 'components/ui/Row';
 import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
+import {keyframes} from 'styles';
 import {setSelectedTab} from 'redux/actions';
 
 const tabs = [
@@ -13,7 +14,14 @@ const tabs = [
 ];
 
 const SettingsTabs = ({selectedTab, showSettings, setSelectedTab}) => (
-  <Flex alignItems="center" justifyContent="center" mt={3}>
+  <Flex
+    css={`
+      animation: fadein 10s ease;
+      ${keyframes.fadein};
+    `}
+    alignItems="center"
+    justifyContent="center"
+    mt={3}>
     <Row
       items={tabs.map(({label, value}) => (
         <SelectBox

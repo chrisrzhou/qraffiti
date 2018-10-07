@@ -19,6 +19,7 @@ injectGlobal`
     }
     * {
       box-sizing: border-box;
+	    touch-action: none;
     }
   }
 `;

@@ -9,7 +9,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {setShowSettings} from 'redux/actions';
 
-const HARDCODED_MARGIN_TOP = [140];
+const HARDCODED_MARGIN_TOP = [140, 290];
 
 const SettingsContent = ({selectedTab, showSettings, setShowSettings}) => {
   if (!showSettings) {
@@ -30,7 +30,7 @@ const SettingsContent = ({selectedTab, showSettings, setShowSettings}) => {
   return (
     <Flex
       css={`
-        animation: dropdown 0.8s ease;
+        animation: fadein 1s ease;
         background: ${colors.blackAlpha};
         border-top: 2px solid white;
         bottom: 0;
@@ -40,7 +40,7 @@ const SettingsContent = ({selectedTab, showSettings, setShowSettings}) => {
         top: 0;
         width: 100%;
         z-index: 1;
-        ${keyframes.dropdown};
+        ${keyframes.fadein};
       `}
       justifyContent="center"
       mt={HARDCODED_MARGIN_TOP}

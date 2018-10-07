@@ -10,6 +10,7 @@ import React from 'react';
 import SettingsContent from 'components/settings/SettingsContent';
 import SettingsTabs from 'components/settings/SettingsTabs';
 import {connect} from 'react-redux';
+import {setShowSettings} from 'redux/actions';
 
 class App extends React.PureComponent {
   state = {
@@ -36,7 +37,7 @@ class App extends React.PureComponent {
           alignItems="center"
           bg={colors.blackAlpha}
           css={`
-            animation: dropdown 3s ease-in-out;
+            animation: dropdown 2s ease-in-out;
             position: relative;
             ${keyframes.dropdown};
           `}
@@ -72,7 +73,11 @@ class App extends React.PureComponent {
 
   _enablePreview = () => {
     this.setState({preview: true});
+    this.props.setShowSettings(false);
   };
 }
 
-export default connect(({qr}) => ({qr}))(App);
+export default connect(
+  ({qr}) => ({qr}),
+  {setShowSettings},
+)(App);
