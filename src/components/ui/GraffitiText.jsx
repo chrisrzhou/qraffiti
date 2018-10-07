@@ -4,7 +4,7 @@ import {Text} from 'rebass';
 const GraffitiText = ({color, children, font, fontSize}) => (
   <Text
     color={color}
-    fontFamily="Megrim"
+    fontFamily="Megrim, Arial"
     fontSize={fontSize}
     textAlign="center">
     {children}

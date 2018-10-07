@@ -1,7 +1,7 @@
-import * as d3 from 'd3';
+import * as d3Scale from 'd3-scale';
 
 import React from 'react';
-import {getPixels} from 'qr/pixels';
+import {getPixels} from 'qr/utils';
 import {getRenderer} from 'qr/patterns';
 
 export default class QRCode extends React.PureComponent {
@@ -18,8 +18,8 @@ export default class QRCode extends React.PureComponent {
   };
 
   componentDidMount() {
-    this._renderQRCode();
     this._resize();
+    this._renderQRCode();
     window.addEventListener('resize', this._resize);
   }
 
@@ -32,9 +32,7 @@ export default class QRCode extends React.PureComponent {
   }
 
   render() {
-    return (
-      <canvas style={{alignSelf: 'center'}} ref={ref => (this._canvas = ref)} />
-    );
+    return <canvas ref={ref => (this._canvas = ref)} />;
   }
 
   async _renderQRCode() {
@@ -61,11 +59,10 @@ export default class QRCode extends React.PureComponent {
       for (let y = 0; y < pixels.length; y++) {
         const pixel = pixels[x][y];
         const {isInnerEye, isOuterEye, value} = pixel;
-        const colorScale = d3
+        const colorScale = d3Scale
           .scaleLinear()
           .domain([0, pixels.length])
-          .range(pixelColors)
-          .interpolate(d3.interpolateHcl);
+          .range(pixelColors);
 
         // render default styles
         let fillStyle = 'rgba(0, 0, 0, 0)';

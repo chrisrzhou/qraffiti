@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
-import reducer from './reducer';
+import rootReducer from './reducers';
 
 const reduxDevTools =
   typeof window !== 'undefined'
@@ -7,4 +7,4 @@ const reduxDevTools =
       window.__REDUX_DEVTOOLS_EXTENSION__()
     : undefined;
 
-export default createStore(reducer, reduxDevTools);
+export default createStore(rootReducer, reduxDevTools);

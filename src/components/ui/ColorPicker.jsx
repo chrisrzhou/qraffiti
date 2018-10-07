@@ -5,8 +5,8 @@ import {colors} from 'styles';
 
 export default class ColorPicker extends React.PureComponent {
   state = {
-    displayColorPicker: false,
     color: '#ffffff',
+    displayColorPicker: false,
   };
 
   componentDidMount() {
@@ -23,10 +23,10 @@ export default class ColorPicker extends React.PureComponent {
   render() {
     const {color, displayColorPicker} = this.state;
     return (
-      <div>
+      <Box>
         <Box
           css={`
-            background: ${colors.white};
+            background: ${colors.primary};
             box-shadow: 0 0 0 1px ${colors.whiteAlpha};
             cursor: pointer;
             padding: 2px;
@@ -58,7 +58,7 @@ export default class ColorPicker extends React.PureComponent {
             <SketchPicker color={color} onChange={this.handleChange} />
           </Box>
         )}
-      </div>
+      </Box>
     );
   }
 

@@ -1,7 +1,7 @@
 {
   "name": "qraffiti",
   "version": "0.1.0",
-  "description": "Create beautiful QR codes",
+  "description": "Create graffiti with QR codes",
   "repository": {
     "type": "git",
     "url": "https://github.com/chrisrzhou/qraffiti"
@@ -17,14 +17,13 @@
   "dependencies": {
     "@chrisrzhou/ui": "https://github.com/chrisrzhou/ui",
     "babel-plugin-styled-components": "^1.7.1",
-    "d3": "^5.7.0",
+    "d3-scale": "^2.1.2",
     "gatsby": "^2.0.10",
     "gatsby-plugin-manifest": "^2.0.2",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-resolve-src": "^2.0.0-beta.1",
     "gatsby-plugin-styled-components": "^3.0.0",
-    "keymirror": "^0.1.1",
     "qrcode": "^1.2.2",
     "react": "^16.5.1",
     "react-color": "^2.14.1",

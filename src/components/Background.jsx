@@ -5,7 +5,6 @@ import {keyframes} from 'styles';
 
 const Background = ({backgroundImage}) => (
   <Box
-    key={backgroundImage}
     css={`
       background-image: ${backgroundImage};
       background-size: cover;
@@ -16,11 +15,10 @@ const Background = ({backgroundImage}) => (
       z-index: -1; /* always below */
       ${keyframes.fadein};
     `}
+    key={backgroundImage}
   />
 );
 
-const mapStateToProps = state => ({
-  backgroundImage: state.backgroundImage,
-});
-
-export default connect(mapStateToProps)(Background);
+export default connect(({app}) => ({
+  backgroundImage: app.backgroundImage,
+}))(Background);

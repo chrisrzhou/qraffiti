@@ -1,23 +1,10 @@
 # Qraffiti
 
-Generate graffiti with QR codes.
+Create graffiti with QR codes.
 
-## TODOS
-
-- [x] Add more music, `<AudioPlayer />` and "vibe" header tab, support pausing and picking songs
-- [x] Allow background gradient selection for background
-- [x] Work on Pattern tab
-  - Add logos
-  - [x] Tweak eyes
-  - [x] Tweak foreground
-  - [x] Tweak background
-  - renderers explorer
 - [ ] Hydrate qr from URL
-- [ ] Update backgrounds
-- [ ] upload image
-- [ ] Update docs and README
+- [ ] Logos, upload logo/background
 - [ ] Download/Share image
-- [x] Add footer (link to chrisrzhou.io)
 
 ## About
 
@@ -30,7 +17,6 @@ There are many ways to improve on this application! You can contribute towards:
 - QR input types
 - QR renderers
 - Backgrounds
-- Music
 
 The above additions should involve simple code additions to corresponding folders. Please make a pull request and test your PR with Netlify.
 
@@ -51,6 +37,3 @@ TODO: update credits
   - flag:
   - blue:
   - art:
-
-* Music
-  - [Adorable.wav](https://soundcloud.com/mrsjxn/adorable) by mrsjxn
