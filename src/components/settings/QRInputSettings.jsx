@@ -19,16 +19,18 @@ const QRInput = ({
   const data = inputData[inputType];
   return (
     <Flex flexDirection={['column', 'row']}>
-      <Selector
-        items={Object.values(inputs).map(({label, value}) => ({
-          label,
-          value,
-        }))}
-        onSelectItem={item => {
-          setQRInputType(item.value);
-        }}
-        selectedItem={inputType}
-      />
+      <Box mr={[0, 4]}>
+        <Selector
+          items={Object.values(inputs).map(({label, value}) => ({
+            label,
+            value,
+          }))}
+          onSelectItem={item => {
+            setQRInputType(item.value);
+          }}
+          selectedItem={inputType}
+        />
+      </Box>
       <form
         autoComplete="off"
         onSubmit={e => {

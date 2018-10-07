@@ -4,6 +4,7 @@ import bgArt from 'assets/backgrounds/art.jpg';
 const getInitialState = () => ({
   backgroundColors: ['#D2E495', '#BDA5C5'],
   backgroundImage: `url(${bgArt})`,
+  selectedTab: 'input',
   showSettings: false,
 });
 
@@ -25,6 +26,12 @@ export default (state = getInitialState(), action) => {
         ...state,
         backgroundImage: payload.backgroundImage,
         showSettings: false,
+      };
+    case actionTypes.SET_SELECTED_TAB:
+      return {
+        ...state,
+        selectedTab: payload.selectedTab,
+        showSettings: true,
       };
     case actionTypes.SET_SHOW_SETTINGS:
       return {

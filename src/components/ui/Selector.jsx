@@ -4,7 +4,7 @@ import React from 'react';
 import SelectBox from './SelectBox';
 
 export default ({items, selectedItem, onSelectItem}) => (
-  <Flex flexDirection="column" mb={[3, 0]} mr={[0, 3]}>
+  <Flex flexDirection="column" mb={[4, 0]}>
     {items.map(item => {
       const {label, value} = item;
       return (

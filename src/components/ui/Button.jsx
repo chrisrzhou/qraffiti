@@ -13,6 +13,8 @@ export default ({label, type, onClick}) => (
         padding: 4px 8px;
       }
     `}>
-    <button type={type}>{label}</button>
+    <button onClick={onClick} jtype={type}>
+      {label}
+    </button>
   </Box>
 );

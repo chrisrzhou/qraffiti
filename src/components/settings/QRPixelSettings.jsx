@@ -12,6 +12,7 @@ import React from 'react';
 import Row from 'components/ui/Row';
 import {connect} from 'react-redux';
 import patterns from 'qr/patterns';
+import {settingsContentWidth} from 'styles';
 
 const QRPixelSettings = ({
   eyeColors,
@@ -60,7 +61,10 @@ const QRPixelSettings = ({
         mb={4}
         mt={1}
       />
-      <Flex justifyContent="center" flexWrap="wrap">
+      <Flex
+        justifyContent="center"
+        flexWrap="wrap"
+        width={settingsContentWidth}>
         {Object.values(patterns).map(({label, renderer, value}) => (
           <QRPatternPreview
             key={value}

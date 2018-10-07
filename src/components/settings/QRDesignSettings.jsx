@@ -1,7 +1,9 @@
-import {Flex} from 'rebass';
+import {Box, Flex} from 'rebass';
+
 import QRPixelSettings from './QRPixelSettings';
 import React from 'react';
 import Selector from 'components/ui/Selector';
+import {settingsContentWidth} from 'styles';
 
 const TABS = [
   {label: 'Pixels', value: 'pixels'},
@@ -30,12 +32,14 @@ export default class extends React.PureComponent {
     }
     return (
       <Flex flexDirection={['column', 'row']}>
-        <Selector
-          items={TABS}
-          selectedItem={selectedTab}
-          onSelectItem={this._onSelectTab}
-        />
-        <Flex justifyContent="center" width={250}>
+        <Box mr={[0, 4]}>
+          <Selector
+            items={TABS}
+            selectedItem={selectedTab}
+            onSelectItem={this._onSelectTab}
+          />
+        </Box>
+        <Flex justifyContent="center" width={settingsContentWidth}>
           {content}
         </Flex>
       </Flex>

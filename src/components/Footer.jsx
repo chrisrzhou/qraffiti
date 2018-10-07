@@ -13,7 +13,6 @@ export default () => (
       position: fixed;
       left: 0;
       right: 0;
-      z-index: 1;
     `}
     justifyContent="space-between"
     p={2}>

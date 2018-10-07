@@ -15,6 +15,7 @@ export const actionTypes = createActionTypes([
   'SET_QR_INPUT_TYPE',
   'SET_QR_PIXEL_COLORS',
   'SET_QR_PIXEL_PATTERN',
+  'SET_SELECTED_TAB',
   'SET_SHOW_SETTINGS',
 ]);
 
@@ -56,6 +57,11 @@ export const setQRPixelColors = pixelColors => ({
 export const setQRPixelPattern = pixelPattern => ({
   type: actionTypes.SET_QR_PIXEL_PATTERN,
   payload: {pixelPattern},
+});
+
+export const setSelectedTab = selectedTab => ({
+  type: actionTypes.SET_SELECTED_TAB,
+  payload: {selectedTab},
 });
 
 export const setShowSettings = showSettings => ({

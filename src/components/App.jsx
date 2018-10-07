@@ -7,6 +7,7 @@ import Logo from 'components/ui/Logo';
 import Preview from './Preview';
 import QRCode from './QRCode';
 import React from 'react';
+import SettingsContent from 'components/settings/SettingsContent';
 import SettingsTabs from 'components/settings/SettingsTabs';
 import {connect} from 'react-redux';
 
@@ -44,6 +45,7 @@ class App extends React.PureComponent {
           py={[2, 5]}>
           <Logo onClick={this._enablePreview} />
           <SettingsTabs />
+          <SettingsContent />
         </Flex>
         <Flex justifyContent="center" mt={[2, 4]}>
           <QRCode
