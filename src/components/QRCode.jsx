@@ -1,9 +1,6 @@
 import * as d3Scale from 'd3-scale';
 
-import Button from 'components/ui/Button';
-import {Flex} from 'rebass';
 import React from 'react';
-import Row from 'components/ui/Row';
 import {getPixels} from 'qr/utils';
 import {getRenderer} from 'qr/patterns';
 
@@ -12,6 +9,7 @@ export default class QRCode extends React.PureComponent {
     errorCorrectionLevel: 'L',
     eyeColors: ['#000000', '#000000'],
     eyePattern: 'base',
+    maxSize: 400,
     pixelColors: ['#000000', '#000000'],
     pixelPattern: 'base',
   };
@@ -39,18 +37,7 @@ export default class QRCode extends React.PureComponent {
   }
 
   render() {
-    return (
-      <Flex alignItems="center" flexDirection="column">
-        <canvas ref={ref => (this._canvas = ref)} />
-        <Row
-          items={[
-            <a download="qrcode.png" href={this.state.imgHref}>
-              <Button label="Save PNG" />
-            </a>,
-          ]}
-        />
-      </Flex>
-    );
+    return <canvas ref={ref => (this._canvas = ref)} />;
   }
 
   async _renderQRCode() {
@@ -116,10 +103,13 @@ export default class QRCode extends React.PureComponent {
         }
       }
     }
-    this.setState({imgHref: this._canvas.toDataURL('image/png')});
+    this.props.onSetImnageHref &&
+      this.props.onSetImageHref(this._canvas.toDataURL('image/png'));
   }
 
   _resize = () => {
-    this.setState({canvasSize: Math.min(400, window.innerWidth)});
+    this.setState({
+      canvasSize: Math.min(this.props.maxSize, window.innerWidth),
+    });
   };
 }

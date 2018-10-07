@@ -7,7 +7,7 @@ import QRDesignSettings from './QRDesignSettings';
 import QRInputSettings from './QRInputSettings';
 import React from 'react';
 import {connect} from 'react-redux';
-import {setShowSettings} from 'redux/actions';
+import {setShowSettings} from 'redux/app/actions';
 
 const HARDCODED_MARGIN_TOP = [140, 290];
 

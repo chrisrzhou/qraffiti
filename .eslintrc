@@ -2,6 +2,7 @@
   extends: ['fbjs', 'prettier'],
   plugins: ['prettier'],
   rules: {
+    'relay/graphql-syntax': 'ignore',
     'prettier/prettier': [
       'error',
       {

@@ -18,6 +18,13 @@ module.exports = {
         icon: 'src/assets/logo.png',
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'backgrounds',
+        path: `${__dirname}/src/assets/backgrounds`,
+      },
+    },
     'gatsby-plugin-offline',
   ],
 };

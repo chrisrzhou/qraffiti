@@ -7,10 +7,12 @@ import Logo from 'components/ui/Logo';
 import Preview from './Preview';
 import QRCode from './QRCode';
 import React from 'react';
+import SaveButton from './SaveButton';
 import SettingsContent from 'components/settings/SettingsContent';
 import SettingsTabs from 'components/settings/SettingsTabs';
 import {connect} from 'react-redux';
-import {setShowSettings} from 'redux/actions';
+import {setImageHref} from 'redux/qr/actions';
+import {setShowSettings} from 'redux/app/actions';
 
 class App extends React.PureComponent {
   state = {
@@ -18,13 +20,8 @@ class App extends React.PureComponent {
   };
 
   render() {
-    const {
-      eyeColors,
-      eyePattern,
-      inputString,
-      pixelColors,
-      pixelPattern,
-    } = this.props.qr;
+    const {qr, setImageHref} = this.props;
+    const {eyeColors, eyePattern, inputString, pixelColors, pixelPattern} = qr;
     const content = this.state.preview ? (
       <Preview
         onExitPreview={() => {
@@ -48,14 +45,16 @@ class App extends React.PureComponent {
           <SettingsTabs />
           <SettingsContent />
         </Flex>
-        <Flex justifyContent="center" mt={[2, 4]}>
+        <Flex flexDirection="column" alignItems="center" mt={[2, 4]}>
           <QRCode
             eyeColors={eyeColors}
             eyePattern={eyePattern}
             inputString={inputString}
             pixelColors={pixelColors}
             pixelPattern={pixelPattern}
+            onSetImageHref={setImageHref}
           />
+          <SaveButton />
         </Flex>
       </>
     );
@@ -79,5 +78,5 @@ class App extends React.PureComponent {
 
 export default connect(
   ({qr}) => ({qr}),
-  {setShowSettings},
+  {setImageHref, setShowSettings},
 )(App);

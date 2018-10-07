@@ -18,7 +18,7 @@ export default () => (
     p={2}>
     <Logo size={20} />
     <Text textAlign="right">
-      <a href="https://github.com/chrisrzhou/qraffiti">Github</a>
+      <a href="https://github.com/chrisrzhou/qraffiti">About</a>
     </Text>
   </Flex>
 );

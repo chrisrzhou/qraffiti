@@ -1,5 +1,5 @@
 import {Box, Flex} from 'rebass';
-import {setQRInput, setQRInputType, setShowSettings} from 'redux/actions';
+import {setInput, setInputType} from 'redux/qr/actions';
 
 import Button from 'components/ui/Button';
 import InputLabel from 'components/ui/InputLabel';
@@ -7,12 +7,13 @@ import React from 'react';
 import Selector from 'components/ui/Selector';
 import {connect} from 'react-redux';
 import inputs from 'qr/inputs';
+import {setShowSettings} from 'redux/app/actions';
 
 const QRInput = ({
   inputData,
   inputType,
-  setQRInput,
-  setQRInputType,
+  setInput,
+  setInputType,
   setShowSettings,
 }) => {
   const {fields, getInputString} = inputs[inputType];
@@ -26,7 +27,7 @@ const QRInput = ({
             value,
           }))}
           onSelectItem={item => {
-            setQRInputType(item.value);
+            setInputType(item.value);
           }}
           selectedItem={inputType}
         />
@@ -39,7 +40,7 @@ const QRInput = ({
           fields.forEach(({id}) => {
             data[id] = e.target[id].value;
           });
-          setQRInput(inputType, data, getInputString(data));
+          setInput({inputType, data, inputString: getInputString(data)});
           setShowSettings(false);
         }}>
         <Flex alignItems="flex-end" flexDirection="column">
@@ -67,5 +68,5 @@ export default connect(
     inputData: qr.inputData,
     inputType: qr.inputType,
   }),
-  {setQRInput, setQRInputType, setShowSettings},
+  {setInput, setInputType, setShowSettings},
 )(QRInput);

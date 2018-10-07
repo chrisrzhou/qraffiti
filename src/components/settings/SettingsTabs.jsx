@@ -5,7 +5,7 @@ import Row from 'components/ui/Row';
 import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
 import {keyframes} from 'styles';
-import {setSelectedTab} from 'redux/actions';
+import {setSelectedTab} from 'redux/app/actions';
 
 const tabs = [
   {label: 'spray', value: 'input'},
