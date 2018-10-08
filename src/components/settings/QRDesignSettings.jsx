@@ -1,5 +1,6 @@
 import {Box, Flex} from 'rebass';
 
+import QRLogoSettings from './QRLogoSettings';
 import QRPixelSettings from './QRPixelSettings';
 import React from 'react';
 import Selector from 'components/ui/Selector';
@@ -27,6 +28,8 @@ export default class extends React.PureComponent {
         content = <QRPixelSettings type="eyes" />;
         break;
       case 'logo':
+        content = <QRLogoSettings />;
+        break;
       default:
         content = <div>adfadf</div>;
     }

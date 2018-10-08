@@ -5,9 +5,10 @@ import Logo from 'components/ui/Logo';
 import QRCode from './QRCode';
 import React from 'react';
 import {connect} from 'react-redux';
+import {getLogoImageData} from 'redux/qr/selectors';
 
-const Preview = ({qr, onExitPreview}) => {
-  const {eyeColors, eyePattern, inputString, bodyColors, bodyPattern} = qr;
+const Preview = ({logoImageData, qr, onExitPreview}) => {
+  const {bodyColors, bodyPattern, eyeColors, eyePattern, inputString} = qr;
   return (
     <Flex
       alignItems="center"
@@ -27,16 +28,20 @@ const Preview = ({qr, onExitPreview}) => {
         p={[1, 3]}>
         <Logo />
         <QRCode
+          bodyColors={bodyColors}
+          bodyPattern={bodyPattern}
           eyeColors={eyeColors}
           eyePattern={eyePattern}
           inputString={inputString}
+          logoImageData={logoImageData}
           maxSize={200}
-          bodyColors={bodyColors}
-          bodyPattern={bodyPattern}
         />
       </Flex>
     </Flex>
   );
 };
 
-export default connect(({qr}) => ({qr}))(Preview);
+export default connect(({qr}) => ({
+  logoImageData: getLogoImageData(qr),
+  qr,
+}))(Preview);

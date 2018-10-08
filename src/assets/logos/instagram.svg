@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="1000"
+   height="1000"
+   viewBox="0 0 1000 1000"
+   id="Layer_1"
+   xml:space="preserve"><metadata
+     id="metadata30"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs28" /><g
+     transform="scale(7.8125,7.8125)"
+     id="g3"><linearGradient
+       x1="-566.71143"
+       y1="516.56927"
+       x2="-493.28751"
+       y2="621.42963"
+       id="SVGID_1_"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,-1,594,633)"><stop
+         id="stop6"
+         style="stop-color:#ffb900;stop-opacity:1"
+         offset="0" /><stop
+         id="stop8"
+         style="stop-color:#9100eb;stop-opacity:1"
+         offset="1" /></linearGradient><circle
+       cx="64"
+       cy="64"
+       r="64"
+       id="circle10"
+       style="fill:url(#SVGID_1_)" /></g><g
+     transform="scale(7.8125,7.8125)"
+     id="g12"><g
+       id="g14"><path
+         d="M 82.333,104 H 45.667 C 33.72,104 24,94.281 24,82.333 V 45.667 C 24,33.719 33.72,24 45.667,24 H 82.333 C 94.281,24 104,33.719 104,45.667 V 82.334 C 104,94.281 94.281,104 82.333,104 z M 45.667,30.667 c -8.271,0 -15,6.729 -15,15 v 36.667 c 0,8.271 6.729,15 15,15 h 36.666 c 8.271,0 15,-6.729 15,-15 V 45.667 c 0,-8.271 -6.729,-15 -15,-15 H 45.667 z"
+         id="path16"
+         style="fill:#ffffff" /></g><g
+       id="g18"><path
+         d="M 64,84 C 52.972,84 44,75.027 44,64 44,52.971 52.972,44 64,44 c 11.028,0 20,8.971 20,20 0,11.027 -8.972,20 -20,20 z m 0,-33.333 c -7.352,0 -13.333,5.981 -13.333,13.333 0,7.353 5.981,13.333 13.333,13.333 7.352,0 13.333,-5.98 13.333,-13.333 0,-7.352 -5.98,-13.333 -13.333,-13.333 z"
+         id="path20"
+         style="fill:#ffffff" /></g><g
+       id="g22"><circle
+         cx="85.25"
+         cy="42.75"
+         r="4.5830002"
+         id="circle24"
+         style="fill:#ffffff" /></g></g></svg>

@@ -1,10 +1,11 @@
 const PARAM_WHITELIST_FIELDS = [
+  'bodyColors',
+  'bodyPattern',
   'eyeColors',
   'eyePattern',
   'inputData',
   'inputType',
-  'bodyColors',
-  'bodyPattern',
+  'logo',
 ];
 
 export const getUrlParam = state => {
@@ -19,4 +20,8 @@ export const getUrlParam = state => {
     }
   }
   return btoa(JSON.stringify(urlParams));
+};
+
+export const getLogoImageData = ({logo}) => {
+  return logo ? require(`assets/logos/${logo}.svg`) : null;
 };

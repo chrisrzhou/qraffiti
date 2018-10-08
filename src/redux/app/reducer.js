@@ -1,10 +1,10 @@
 import {actionTypes} from './actions';
-import bgArt from 'assets/backgrounds/art.jpg';
+import bgGraffiti from 'assets/backgrounds/graffiti.jpg';
 import {createReducers} from 'redux/utils';
 
 const getInitialState = () => ({
   backgroundColors: ['#D2E495', '#BDA5C5'],
-  backgroundImage: `url(${bgArt})`,
+  backgroundImage: `url(${bgGraffiti})`,
   isPreview: true,
   selectedTab: 'input',
   showSettings: false,

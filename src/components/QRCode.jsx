@@ -6,16 +6,14 @@ import {getRenderer} from 'qr/patterns';
 
 export default class QRCode extends React.PureComponent {
   static defaultProps = {
-    errorCorrectionLevel: 'L',
+    bodyColors: ['#000000', '#000000'],
+    bodyPattern: 'base',
     eyeColors: ['#000000', '#000000'],
     eyePattern: 'base',
     maxSize: 400,
-    bodyColors: ['#000000', '#000000'],
-    bodyPattern: 'base',
   };
 
   state = {
-    imgHref: null,
     width: 0,
   };
 
@@ -26,9 +24,6 @@ export default class QRCode extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.imgHref !== this.state.imgHref) {
-      return;
-    }
     this._renderQRCode();
   }
 
@@ -43,14 +38,15 @@ export default class QRCode extends React.PureComponent {
   async _renderQRCode() {
     const {canvasSize} = this.state;
     const {
-      errorCorrectionLevel,
+      bodyColors,
+      bodyPattern,
       eyeColors,
       eyePattern,
       inputString,
-      bodyColors,
-      bodyPattern,
+      logoImageData,
     } = this.props;
     // get pixels
+    const errorCorrectionLevel = logoImageData ? 'H' : 'M';
     const pixels = await getPixels(inputString, errorCorrectionLevel);
 
     // clear context
@@ -103,8 +99,22 @@ export default class QRCode extends React.PureComponent {
         }
       }
     }
-    this.props.onSetImageHref &&
-      this.props.onSetImageHref(this._canvas.toDataURL('image/png'));
+
+    // render logo if available
+    if (logoImageData) {
+      const logoSize = canvasSize / 4;
+      this._logoImage = new Image();
+      this._logoImage.onload = () => {
+        context.drawImage(
+          this._logoImage,
+          canvasSize / 2 - logoSize / 2,
+          canvasSize / 2 - logoSize / 2,
+          logoSize,
+          logoSize,
+        );
+      };
+      this._logoImage.src = logoImageData;
+    }
   }
 
   _resize = () => {

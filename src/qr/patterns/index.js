@@ -8,6 +8,14 @@ const patterns = {
     id: 'base',
     renderer: base,
   }),
+  round: createPattern({
+    id: 'round',
+    renderer: round(),
+  }),
+  dot: createPattern({
+    id: 'dot',
+    renderer: round(0.4),
+  }),
   triangle: createPattern({
     id: 'triangle',
     renderer: polygon(3),
@@ -15,14 +23,6 @@ const patterns = {
   diamond: createPattern({
     id: 'diamond',
     renderer: polygon(4),
-  }),
-  dot: createPattern({
-    id: 'dot',
-    renderer: round(0.4),
-  }),
-  round: createPattern({
-    id: 'round',
-    renderer: round(),
   }),
 };
 
