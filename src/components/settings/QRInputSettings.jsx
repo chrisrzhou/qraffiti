@@ -1,7 +1,7 @@
-import {Box, Flex} from 'rebass';
 import {setInput, setInputType} from 'redux/qr/actions';
 
 import Button from 'components/ui/Button';
+import {Flex} from 'rebass';
 import InputLabel from 'components/ui/InputLabel';
 import React from 'react';
 import Selector from 'components/ui/Selector';
@@ -20,18 +20,18 @@ const QRInput = ({
   const data = inputData[inputType];
   return (
     <Flex flexDirection={['column', 'row']}>
-      <Box mr={[0, 4]}>
-        <Selector
-          items={Object.values(inputs).map(({label, value}) => ({
-            label,
-            value,
-          }))}
-          onSelectItem={item => {
-            setInputType(item.value);
-          }}
-          selectedItem={inputType}
-        />
-      </Box>
+      <Selector
+        items={Object.values(inputs).map(({label, value}) => ({
+          label,
+          value,
+        }))}
+        mb={[4, 0]}
+        mr={[0, 4]}
+        onSelectItem={item => {
+          setInputType(item.value);
+        }}
+        selectedItem={inputType}
+      />
       <form
         autoComplete="off"
         onSubmit={e => {
@@ -58,9 +58,7 @@ const QRInput = ({
               value={data ? data[id] : undefined}
             />
           ))}
-          <Box mt={4}>
-            <Button label="Spray it" type="submit" />
-          </Box>
+          <Button label="Spray it" mt={4} type="submit" />
         </Flex>
       </form>
     </Flex>

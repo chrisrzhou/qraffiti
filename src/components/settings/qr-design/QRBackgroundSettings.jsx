@@ -1,6 +1,7 @@
 import {StaticQuery, graphql} from 'gatsby';
-import {setBackgroundColors, setBackgroundImage} from 'redux/app/actions';
+import {setBackgroundColors, setBackgroundImage} from 'redux/qr/actions';
 
+import Button from 'components/ui/Button';
 import ColorPicker from 'components/ui/ColorPicker';
 import {Flex} from 'rebass';
 import GraffitiText from 'components/ui/GraffitiText';
@@ -22,7 +23,7 @@ const query = graphql`
   }
 `;
 
-const BackgroundSettings = ({
+const QRBackgroundSettings = ({
   backgroundColors,
   backgroundImage,
   setBackgroundColors,
@@ -35,11 +36,11 @@ const BackgroundSettings = ({
         const [color1, color2] = backgroundColors;
         const backgrounds = data.allFile.edges.map(({node}) => ({
           label: node.name,
-          value: `url(${node.publicURL})`,
+          value: node.publicURL,
         }));
         return (
-          <Flex flexDirection="column">
-            <Flex flexDirection="column" mb={4}>
+          <Flex alignItems="center" flexDirection="column">
+            <Flex flexDirection="column">
               <GraffitiText>Gradient</GraffitiText>
               <Row
                 items={[
@@ -60,9 +61,16 @@ const BackgroundSettings = ({
             </Flex>
             <Selector
               items={backgrounds}
+              my={4}
               selectedItem={backgroundImage}
               onSelectItem={item => {
                 setBackgroundImage(item.value);
+              }}
+            />
+            <Button
+              label="No background"
+              onClick={() => {
+                setBackgroundImage(undefined);
               }}
             />
           </Flex>
@@ -73,9 +81,9 @@ const BackgroundSettings = ({
 };
 
 export default connect(
-  ({app}) => ({
-    backgroundColors: app.backgroundColors,
-    backgroundImage: app.backgroundImage,
+  ({qr}) => ({
+    backgroundColors: qr.backgroundColors,
+    backgroundImage: qr.backgroundImage,
   }),
   {setBackgroundColors, setBackgroundImage},
-)(BackgroundSettings);
+)(QRBackgroundSettings);

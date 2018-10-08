@@ -1,9 +1,9 @@
 import {Flex, Text} from 'rebass';
 import {
-  setEyeColors,
-  setEyePattern,
   setBodyColors,
   setBodyPattern,
+  setEyeColors,
+  setEyePattern,
 } from 'redux/qr/actions';
 
 import ColorPicker from 'components/ui/ColorPicker';
@@ -65,16 +65,18 @@ const QRPixelSettings = ({
         justifyContent="center"
         flexWrap="wrap"
         width={settingsContentWidth}>
-        {Object.values(patterns).map(({label, renderer, value}) => (
-          <QRPatternPreview
-            key={value}
-            isSelected={pattern === value}
-            label={label}
-            renderer={renderer}
-            type={type}
-            onClick={() => setPattern(value)}
-          />
-        ))}
+        {Object.values(patterns)
+          .filter(pattern => pattern.type === 'both' || pattern.type === type)
+          .map(({label, renderer, value}) => (
+            <QRPatternPreview
+              key={value}
+              isSelected={pattern === value}
+              label={label}
+              renderer={renderer}
+              type={type}
+              onClick={() => setPattern(value)}
+            />
+          ))}
       </Flex>
     </Flex>
   );

@@ -1,4 +1,4 @@
-import {Box, Flex} from 'rebass';
+import {Box, Text} from 'rebass';
 
 import React from 'react';
 import SelectBox from 'components/ui/SelectBox';
@@ -41,13 +41,11 @@ export default class QRPatternPreview extends React.PureComponent {
   render() {
     const {isSelected, label, onClick} = this.props;
     return (
-      <SelectBox isSelected={isSelected} onClick={onClick}>
-        <Flex alignItems="center" flexDirection="column" m={1}>
-          {label}
-          <Box bg="white" mt={1} p={1}>
-            <canvas ref={ref => (this._canvas = ref)} />
-          </Box>
-        </Flex>
+      <SelectBox isSelected={isSelected} m={1} p={1} onClick={onClick}>
+        <Text textAlign="center">{label}</Text>
+        <Box bg="white" mt={1}>
+          <canvas ref={ref => (this._canvas = ref)} />
+        </Box>
       </SelectBox>
     );
   }

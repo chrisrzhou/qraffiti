@@ -5,7 +5,7 @@ import {colors} from 'styles';
 
 export default class ColorPicker extends React.PureComponent {
   state = {
-    color: '#ffffff',
+    color: 'rgba(255, 255, 255, 1)',
     displayColorPicker: false,
   };
 
@@ -43,15 +43,17 @@ export default class ColorPicker extends React.PureComponent {
         {displayColorPicker && (
           <Box
             css={`
-              position: absolute;
+              left: 0;
+              position: fixed;
+              top: 0;
             `}>
             <Box
               css={`
-                bottom: 0px;
-                left: 0px;
+                bottom: 0;
+                left: 0;
                 position: fixed;
-                right: 0px;
-                top: 0px;
+                right: 0;
+                top: 0;
               `}
               onClick={this.handleClose}
             />
@@ -71,7 +73,9 @@ export default class ColorPicker extends React.PureComponent {
   };
 
   handleChange = color => {
-    this.setState({color: color.hex});
-    this.props.onChange && this.props.onChange(color.hex);
+    const {r, g, b, a} = color.rgb;
+    const rgbaColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+    this.setState({color: rgbaColor});
+    this.props.onChange && this.props.onChange(rgbaColor);
   };
 }

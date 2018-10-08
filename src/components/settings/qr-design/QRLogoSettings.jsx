@@ -1,7 +1,7 @@
-import {Box, Flex} from 'rebass';
 import {StaticQuery, graphql} from 'gatsby';
 
 import Button from 'components/ui/Button';
+import {Flex} from 'rebass';
 import React from 'react';
 import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
@@ -34,10 +34,11 @@ const QRLogoSettings = ({logo, setLogo}) => {
               key={name}
               onClick={() => {
                 setLogo(name);
-              }}>
-              <Box p={1} width={40}>
-                <img style={{width: '100%'}} src={publicURL} />
-              </Box>
+              }}
+              m={1}
+              p={1}
+              width={40}>
+              <img style={{width: '100%'}} src={publicURL} />
             </SelectBox>
           );
         });
@@ -47,7 +48,7 @@ const QRLogoSettings = ({logo, setLogo}) => {
               alignItems="center"
               flexWrap="wrap"
               justifyContent="center"
-              mb={3}
+              mb={4}
               width={settingsContentWidth}>
               {logos}
             </Flex>

@@ -1,5 +1,4 @@
-import {Flex, Text} from 'rebass';
-
+import {Flex} from 'rebass';
 import {Logo} from '@chrisrzhou/ui';
 import React from 'react';
 import {colors} from 'styles';
@@ -17,8 +16,6 @@ export default () => (
     justifyContent="space-between"
     p={2}>
     <Logo size={20} />
-    <Text textAlign="right">
-      <a href="https://github.com/chrisrzhou/qraffiti">About</a>
-    </Text>
+    <a href="https://github.com/chrisrzhou/qraffiti">About</a>
   </Flex>
 );

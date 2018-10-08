@@ -7,7 +7,7 @@ const isSelectedCSS = `
   color: ${colors.black};
 `;
 
-export default ({children, isSelected, onClick}) => (
+export default ({children, isSelected, onClick, ...otherProps}) => (
   <Box
     css={`
       cursor: pointer;
@@ -18,7 +18,8 @@ export default ({children, isSelected, onClick}) => (
       ${isSelected ? isSelectedCSS : ''};
     `}
     onClick={onClick}
-    p={1}>
+    p={1}
+    {...otherProps}>
     {children}
   </Box>
 );

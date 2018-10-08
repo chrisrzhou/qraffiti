@@ -1,7 +1,7 @@
 import {Box, Flex} from 'rebass';
 import {colors, keyframes} from 'styles';
 
-import BackgroundSettings from './BackgroundSettings';
+import AppBackgroundSettings from './AppBackgroundSettings';
 import Button from 'components/ui/Button';
 import QRDesignSettings from './QRDesignSettings';
 import QRInputSettings from './QRInputSettings';
@@ -24,7 +24,7 @@ const SettingsContent = ({selectedTab, showSettings, setShowSettings}) => {
       tabContent = <QRDesignSettings />;
       break;
     case 'background':
-      tabContent = <BackgroundSettings />;
+      tabContent = <AppBackgroundSettings />;
       break;
   }
   return (

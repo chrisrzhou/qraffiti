@@ -1,7 +1,7 @@
-import {Box, Flex} from 'rebass';
-
-import QRLogoSettings from './QRLogoSettings';
-import QRPixelSettings from './QRPixelSettings';
+import {Flex} from 'rebass';
+import QRBackgroundSettings from './qr-design/QRBackgroundSettings';
+import QRLogoSettings from './qr-design/QRLogoSettings';
+import QRPixelSettings from './qr-design/QRPixelSettings';
 import React from 'react';
 import Selector from 'components/ui/Selector';
 import {settingsContentWidth} from 'styles';
@@ -10,6 +10,7 @@ const TABS = [
   {label: 'Body', value: 'body'},
   {label: 'Eyes', value: 'eyes'},
   {label: 'Logo', value: 'logo'},
+  {label: 'Background', value: 'background'},
 ];
 
 export default class extends React.PureComponent {
@@ -27,21 +28,22 @@ export default class extends React.PureComponent {
       case 'eyes':
         content = <QRPixelSettings type="eyes" />;
         break;
+      case 'background':
+        content = <QRBackgroundSettings />;
+        break;
       case 'logo':
         content = <QRLogoSettings />;
         break;
-      default:
-        content = <div>adfadf</div>;
     }
     return (
       <Flex flexDirection={['column', 'row']}>
-        <Box mr={[0, 4]}>
-          <Selector
-            items={TABS}
-            selectedItem={selectedTab}
-            onSelectItem={this._onSelectTab}
-          />
-        </Box>
+        <Selector
+          items={TABS}
+          mb={[4, 0]}
+          mr={[0, 4]}
+          selectedItem={selectedTab}
+          onSelectItem={this._onSelectTab}
+        />
         <Flex justifyContent="center" width={settingsContentWidth}>
           {content}
         </Flex>

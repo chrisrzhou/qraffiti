@@ -2,7 +2,7 @@ import {Box} from 'rebass';
 import React from 'react';
 import {colors} from 'styles';
 
-export default ({label, type, onClick}) => (
+export default ({label, type, onClick, ...otherProps}) => (
   <Box
     css={`
       button {
@@ -12,7 +12,8 @@ export default ({label, type, onClick}) => (
         outline: none;
         padding: 4px 8px;
       }
-    `}>
+    `}
+    {...otherProps}>
     <button onClick={onClick} jtype={type}>
       {label}
     </button>

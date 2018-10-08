@@ -6,9 +6,10 @@ import {getRenderer} from 'qr/patterns';
 
 export default class QRCode extends React.PureComponent {
   static defaultProps = {
-    bodyColors: ['#000000', '#000000'],
+    backgroundColors: ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 1)'],
+    bodyColors: ['rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)'],
     bodyPattern: 'base',
-    eyeColors: ['#000000', '#000000'],
+    eyeColors: ['rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)'],
     eyePattern: 'base',
     maxSize: 400,
   };
@@ -19,12 +20,12 @@ export default class QRCode extends React.PureComponent {
 
   componentDidMount() {
     this._resize();
-    this._renderQRCode();
+    this._render();
     window.addEventListener('resize', this._resize);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this._renderQRCode();
+    this._render();
   }
 
   componentWillUnmount() {
@@ -35,27 +36,72 @@ export default class QRCode extends React.PureComponent {
     return <canvas ref={ref => (this._canvas = ref)} />;
   }
 
+  _render() {
+    const {backgroundImage} = this.props;
+    const {canvasSize} = this.state;
+
+    // reset canvas
+    this._context = this._canvas.getContext('2d');
+    this._context.clearRect(
+      0,
+      0,
+      this._context.canvas.height,
+      this._context.canvas.width,
+    );
+    this._context.canvas.height = canvasSize;
+    this._context.canvas.width = canvasSize;
+
+    if (backgroundImage) {
+      this._renderBackground(backgroundImage);
+    } else {
+      this._renderQRCode();
+    }
+  }
+
+  _renderBackground(backgroundImage) {
+    const {canvasSize} = this.state;
+
+    // render background if available
+    this._backgroundImage = new Image();
+    this._backgroundImage.onload = () => {
+      this._context.drawImage(
+        this._backgroundImage,
+        0,
+        0,
+        canvasSize,
+        canvasSize,
+      );
+      this._renderQRCode();
+    };
+    this._backgroundImage.src = backgroundImage;
+  }
+
   async _renderQRCode() {
     const {canvasSize} = this.state;
     const {
+      backgroundImage,
+      backgroundColors,
       bodyColors,
       bodyPattern,
       eyeColors,
       eyePattern,
       inputString,
-      logoImageData,
+      logoImage,
     } = this.props;
     // get pixels
-    const errorCorrectionLevel = logoImageData ? 'H' : 'M';
+    const errorCorrectionLevel = logoImage ? 'H' : 'M';
     const pixels = await getPixels(inputString, errorCorrectionLevel);
 
-    // clear context
-    const context = this._canvas.getContext('2d');
-    context.clearRect(0, 0, context.canvas.height, context.canvas.width);
-    context.canvas.height = canvasSize;
-    context.canvas.width = canvasSize;
+    // render linear gradient background
+    if (!backgroundImage) {
+      const gradient = this._context.createLinearGradient(0, 0, 170, 0);
+      gradient.addColorStop(0, backgroundColors[0]);
+      gradient.addColorStop(1, backgroundColors[1]);
+      this._context.fillStyle = gradient;
+      this._context.fillRect(0, 0, canvasSize, canvasSize);
+    }
 
-    // render loop
+    // render pixels
     for (let x = 0; x < pixels.length; x++) {
       for (let y = 0; y < pixels.length; y++) {
         const pixel = pixels[x][y];
@@ -70,9 +116,9 @@ export default class QRCode extends React.PureComponent {
         if (value) {
           fillStyle = colorScale(x + y);
           if (!isInnerEye && !isOuterEye) {
-            context.fillStyle = fillStyle;
+            this._context.fillStyle = fillStyle;
             getRenderer(bodyPattern)({
-              context,
+              context: this._context,
               pixel,
               pixels,
               canvasSize,
@@ -86,9 +132,9 @@ export default class QRCode extends React.PureComponent {
             if (isOuterEye) {
               fillStyle = eyeColors[1];
             }
-            context.fillStyle = fillStyle;
+            this._context.fillStyle = fillStyle;
             getRenderer(eyePattern)({
-              context,
+              context: this._context,
               pixel,
               pixels,
               canvasSize,
@@ -101,20 +147,18 @@ export default class QRCode extends React.PureComponent {
     }
 
     // render logo if available
-    if (logoImageData) {
-      const logoSize = canvasSize / 4;
-      this._logoImage = new Image();
-      this._logoImage.onload = () => {
-        context.drawImage(
-          this._logoImage,
-          canvasSize / 2 - logoSize / 2,
-          canvasSize / 2 - logoSize / 2,
-          logoSize,
-          logoSize,
-        );
-      };
-      this._logoImage.src = logoImageData;
-    }
+    const logoSize = canvasSize / 4;
+    this._logoImage = new Image();
+    this._logoImage.onload = () => {
+      this._context.drawImage(
+        this._logoImage,
+        canvasSize / 2 - logoSize / 2,
+        canvasSize / 2 - logoSize / 2,
+        logoSize,
+        logoSize,
+      );
+    };
+    this._logoImage.src = logoImage;
   }
 
   _resize = () => {

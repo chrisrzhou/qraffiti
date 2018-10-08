@@ -1,12 +1,13 @@
 import React from 'react';
 import {Text} from 'rebass';
 
-const GraffitiText = ({color, children, font, fontSize}) => (
+const GraffitiText = ({color, children, font, fontSize, ...otherProps}) => (
   <Text
     color={color}
     fontFamily="Megrim, Arial"
     fontSize={fontSize}
-    textAlign="center">
+    textAlign="center"
+    {...otherProps}>
     {children}
   </Text>
 );

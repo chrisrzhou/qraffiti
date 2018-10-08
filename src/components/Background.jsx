@@ -8,7 +8,7 @@ const Background = ({backgroundImage}) => (
     css={`
       background-image: ${backgroundImage};
       background-size: cover;
-      animation: fadein 5s ease-in-out;
+      animation: fadein 3s ease-in-out;
       height: 100vh;
       position: fixed;
       width: 100vw;

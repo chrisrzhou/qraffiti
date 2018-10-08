@@ -7,14 +7,13 @@ import Footer from './Footer';
 import Logo from 'components/ui/Logo';
 import PermalinkButton from './PermalinkButton';
 import Preview from './Preview';
-import QRCode from './QRCode';
+import QRCodeContainer from './QRCodeContainer';
 import React from 'react';
 import Row from 'components/ui/Row';
 import SettingsContent from 'components/settings/SettingsContent';
 import SettingsTabs from 'components/settings/SettingsTabs';
 import TweetButton from './TweetButton';
 import {connect} from 'react-redux';
-import {getLogoImageData} from 'redux/qr/selectors';
 import {hydrateState} from 'redux/qr/actions';
 
 class App extends React.PureComponent {
@@ -38,8 +37,7 @@ class App extends React.PureComponent {
   }
 
   render() {
-    const {isPreview, location, logoImageData, qr, setPreview} = this.props;
-    const {bodyColors, bodyPattern, eyeColors, eyePattern, inputString} = qr;
+    const {isPreview, location, setPreview} = this.props;
     const content = isPreview ? (
       <Preview
         onExitPreview={() => {
@@ -52,7 +50,7 @@ class App extends React.PureComponent {
           alignItems="center"
           bg={colors.blackAlpha}
           css={`
-            animation: dropdown 2s ease-in-out;
+            animation: dropdown 1s ease-in-out;
             position: relative;
             ${keyframes.dropdown};
           `}
@@ -64,19 +62,13 @@ class App extends React.PureComponent {
           <SettingsContent />
         </Flex>
         <Flex flexDirection="column" alignItems="center" mt={[2, 4]}>
-          <QRCode
-            bodyColors={bodyColors}
-            bodyPattern={bodyPattern}
-            eyeColors={eyeColors}
-            eyePattern={eyePattern}
-            inputString={inputString}
-            logoImageData={logoImageData}
-          />
+          <QRCodeContainer maxSize={400} />
           <Row
             items={[
               <PermalinkButton location={location} />,
               <TweetButton location={location} />,
             ]}
+            mt={3}
           />
         </Flex>
       </>
@@ -106,10 +98,8 @@ class App extends React.PureComponent {
 }
 
 export default connect(
-  ({app, qr}) => ({
+  ({app}) => ({
     isPreview: app.isPreview,
-    logoImageData: getLogoImageData(qr),
-    qr,
   }),
   {
     hydrateState,

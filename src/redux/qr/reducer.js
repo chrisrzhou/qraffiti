@@ -2,9 +2,11 @@ import {actionTypes} from './actions';
 import {createReducers} from 'redux/utils';
 
 const getInitialState = () => ({
-  bodyColors: ['#210c60', '#0e685b'],
+  backgroundColors: ['rgba(255, 255, 255, 1)', 'rgba(230, 255, 255, 1)'],
+  backgroundImage: null,
+  bodyColors: ['rgba(30, 10, 90, 1)', 'rgba(20, 50, 20, 1)'],
   bodyPattern: 'base',
-  eyeColors: ['#9b1b1b', '#ff0000'],
+  eyeColors: ['rgba(80, 30, 30, 1)', 'rgba(200, 50, 50, 1)'],
   eyePattern: 'base',
   inputData: {},
   inputString: 'https://qraffiti.chrisrzhou.io',
@@ -14,11 +16,26 @@ const getInitialState = () => ({
 
 export default createReducers(getInitialState(), {
   [actionTypes.HYDRATE_STATE]: (state, {payload}) => {
+    const {inputData, ...rest} = payload;
     return {
       ...state,
-      ...payload,
+      ...rest,
+      inputData: {
+        ...state.inputData,
+        [payload.inputType]: inputData,
+      },
     };
   },
+  [actionTypes.SET_BACKGROUND_COLORS]: (state, {payload}) => ({
+    ...state,
+    backgroundColors: payload,
+    backgroundImage: null,
+  }),
+  [actionTypes.SET_BACKGROUND_IMAGE]: (state, {payload}) => ({
+    ...state,
+    backgroundImage: payload,
+    showSettings: false,
+  }),
   [actionTypes.SET_BODY_COLORS]: (state, {payload}) => ({
     ...state,
     bodyColors: payload,

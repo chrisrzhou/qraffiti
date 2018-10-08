@@ -3,7 +3,7 @@ import {Box, Flex, Text} from 'rebass';
 import React from 'react';
 import {colors} from 'styles';
 
-const InputLabel = ({id, label, placeholder, type, value}) => {
+const InputLabel = ({id, label, placeholder, type, value, ...otherProps}) => {
   const input =
     type === 'textarea' ? (
       <textarea
@@ -22,7 +22,11 @@ const InputLabel = ({id, label, placeholder, type, value}) => {
       />
     );
   return (
-    <Flex alignItems="center" justifyContent="space-between" my={1}>
+    <Flex
+      alignItems="center"
+      justifyContent="space-between"
+      my={1}
+      {...otherProps}>
       <label htmlFor={id}>
         <Text
           css={`

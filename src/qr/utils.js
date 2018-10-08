@@ -15,10 +15,11 @@ export const createInput = ({id, fields, getInputString}) => ({
   getInputString,
 });
 
-export const createPattern = ({id, renderer}) => ({
+export const createPattern = ({id, renderer, type}) => ({
   value: id,
   label: _prettifyText(id),
   renderer,
+  type,
 });
 
 export const getPixels = async (text, errorCorrectionLevel = 'M') => {

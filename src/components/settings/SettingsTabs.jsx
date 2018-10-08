@@ -16,7 +16,7 @@ const tabs = [
 const SettingsTabs = ({selectedTab, showSettings, setSelectedTab}) => (
   <Flex
     css={`
-      animation: fadein 10s ease;
+      animation: fadein 5s ease;
       ${keyframes.fadein};
     `}
     alignItems="center"

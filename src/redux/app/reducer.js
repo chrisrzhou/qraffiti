@@ -3,7 +3,7 @@ import bgGraffiti from 'assets/backgrounds/graffiti.jpg';
 import {createReducers} from 'redux/utils';
 
 const getInitialState = () => ({
-  backgroundColors: ['#D2E495', '#BDA5C5'],
+  backgroundColors: ['rgba(210, 230, 150, 1)', 'rgba(189, 165, 197, 1)'],
   backgroundImage: `url(${bgGraffiti})`,
   isPreview: true,
   selectedTab: 'input',
