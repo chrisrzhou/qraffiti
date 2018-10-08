@@ -103,7 +103,7 @@ export default class QRCode extends React.PureComponent {
         }
       }
     }
-    this.props.onSetImnageHref &&
+    this.props.onSetImageHref &&
       this.props.onSetImageHref(this._canvas.toDataURL('image/png'));
   }
 

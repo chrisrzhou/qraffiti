@@ -5,6 +5,7 @@ import {createReducers} from 'redux/utils';
 const getInitialState = () => ({
   backgroundColors: ['#D2E495', '#BDA5C5'],
   backgroundImage: `url(${bgArt})`,
+  isPreview: true,
   selectedTab: 'input',
   showSettings: false,
 });
@@ -19,6 +20,10 @@ export default createReducers(getInitialState(), {
     ...state,
     backgroundImage: payload,
     showSettings: false,
+  }),
+  [actionTypes.SET_PREVIEW]: (state, {payload}) => ({
+    ...state,
+    isPreview: payload,
   }),
   [actionTypes.SET_SELECTED_TAB]: (state, {payload}) => ({
     ...state,

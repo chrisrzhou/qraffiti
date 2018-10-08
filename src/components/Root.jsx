@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import React from 'react';
 import store from 'redux/store';
 
-export default ({children}) => (
+export default ({children, location}) => (
   <>
     <Helmet
       title="qraffiti"
@@ -21,7 +21,7 @@ export default ({children}) => (
       <html lang="en" />
     </Helmet>
     <Provider store={store}>
-      <App />
+      <App location={location} />
     </Provider>
   </>
 );

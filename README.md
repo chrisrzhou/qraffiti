@@ -2,9 +2,7 @@
 
 Create graffiti with QR codes.
 
-- [ ] serialize state and append URL, Hydrate qr from URL
 - [ ] Logos, upload logo/background
-- [x] Download/Share image
 
 ## About
 

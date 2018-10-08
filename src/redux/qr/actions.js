@@ -1,6 +1,7 @@
 import {createAction, createActionTypes} from 'redux/utils';
 
 export const actionTypes = createActionTypes('qr', [
+  'HYDRATE_STATE',
   'SET_BACKGROUND_COLORS',
   'SET_BACKGROUND_IMAGE',
   'SET_EYE_COLORS',
@@ -13,6 +14,8 @@ export const actionTypes = createActionTypes('qr', [
   'SET_SELECTED_TAB',
   'SET_SHOW_SETTINGS',
 ]);
+
+export const hydrateState = createAction(actionTypes.HYDRATE_STATE);
 
 export const setImageHref = createAction(actionTypes.SET_IMAGE_HREF);
 

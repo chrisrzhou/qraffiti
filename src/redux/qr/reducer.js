@@ -8,11 +8,17 @@ const getInitialState = () => ({
   inputData: {},
   inputString: 'https://qraffiti.chrisrzhou.io',
   inputType: 'url',
-  pixelPattern: 'base',
   pixelColors: ['#210c60', '#0e685b'],
+  pixelPattern: 'base',
 });
 
 export default createReducers(getInitialState(), {
+  [actionTypes.HYDRATE_STATE]: (state, {payload}) => {
+    return {
+      ...state,
+      ...payload,
+    };
+  },
   [actionTypes.SET_EYE_COLORS]: (state, {payload}) => ({
     ...state,
     eyeColors: payload,

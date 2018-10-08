@@ -1,31 +1,40 @@
 import {Box, Flex} from 'rebass';
 import {colors, keyframes} from 'styles';
+import {hydrateState, setImageHref} from 'redux/qr/actions';
+import {setPreview, setShowSettings} from 'redux/app/actions';
 
 import Background from './Background';
 import Footer from './Footer';
 import Logo from 'components/ui/Logo';
+import PermalinkButton from './PermalinkButton';
 import Preview from './Preview';
 import QRCode from './QRCode';
 import React from 'react';
+import Row from 'components/ui/Row';
 import SaveButton from './SaveButton';
 import SettingsContent from 'components/settings/SettingsContent';
 import SettingsTabs from 'components/settings/SettingsTabs';
+import TweetButton from './TweetButton';
 import {connect} from 'react-redux';
-import {setImageHref} from 'redux/qr/actions';
-import {setShowSettings} from 'redux/app/actions';
 
 class App extends React.PureComponent {
-  state = {
-    preview: true,
-  };
+  componentDidMount() {
+    const qrState = new URL(this.props.location.href).searchParams.get('qr');
+    if (qrState) {
+      try {
+        this.props.hydrateState(JSON.parse(atob(qrState)));
+        this.setState({isHydrated: true});
+      } catch {}
+    }
+  }
 
   render() {
-    const {qr, setImageHref} = this.props;
+    const {isPreview, location, qr, setImageHref, setPreview} = this.props;
     const {eyeColors, eyePattern, inputString, pixelColors, pixelPattern} = qr;
-    const content = this.state.preview ? (
+    const content = isPreview ? (
       <Preview
         onExitPreview={() => {
-          this.setState({preview: false});
+          setPreview(false);
         }}
       />
     ) : (
@@ -54,7 +63,13 @@ class App extends React.PureComponent {
             pixelPattern={pixelPattern}
             onSetImageHref={setImageHref}
           />
-          <SaveButton />
+          <Row
+            items={[
+              <SaveButton />,
+              <PermalinkButton location={location} />,
+              <TweetButton location={location} />,
+            ]}
+          />
         </Flex>
       </>
     );
@@ -71,12 +86,20 @@ class App extends React.PureComponent {
   }
 
   _enablePreview = () => {
-    this.setState({preview: true});
+    this.props.setPreview(true);
     this.props.setShowSettings(false);
   };
 }
 
 export default connect(
-  ({qr}) => ({qr}),
-  {setImageHref, setShowSettings},
+  ({app, qr}) => ({
+    isPreview: app.isPreview,
+    qr,
+  }),
+  {
+    hydrateState,
+    setImageHref,
+    setPreview,
+    setShowSettings,
+  },
 )(App);

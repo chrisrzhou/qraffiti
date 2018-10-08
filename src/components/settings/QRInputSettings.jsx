@@ -40,7 +40,11 @@ const QRInput = ({
           fields.forEach(({id}) => {
             data[id] = e.target[id].value;
           });
-          setInput({inputType, data, inputString: getInputString(data)});
+          setInput({
+            inputData: data,
+            inputString: getInputString(data),
+            inputType,
+          });
           setShowSettings(false);
         }}>
         <Flex alignItems="flex-end" flexDirection="column">

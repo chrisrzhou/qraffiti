@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 const SaveButton = ({href}) => (
   <a download="qrcode.png" href={href}>
-    <Button label="Save PNG" />
+    <Button label="Save" />
   </a>
 );
 
