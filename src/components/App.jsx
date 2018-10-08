@@ -30,7 +30,7 @@ class App extends React.PureComponent {
 
   render() {
     const {isPreview, location, qr, setImageHref, setPreview} = this.props;
-    const {eyeColors, eyePattern, inputString, pixelColors, pixelPattern} = qr;
+    const {eyeColors, eyePattern, inputString, bodyColors, bodyPattern} = qr;
     const content = isPreview ? (
       <Preview
         onExitPreview={() => {
@@ -59,8 +59,8 @@ class App extends React.PureComponent {
             eyeColors={eyeColors}
             eyePattern={eyePattern}
             inputString={inputString}
-            pixelColors={pixelColors}
-            pixelPattern={pixelPattern}
+            bodyColors={bodyColors}
+            bodyPattern={bodyPattern}
             onSetImageHref={setImageHref}
           />
           <Row

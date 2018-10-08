@@ -6,22 +6,22 @@ import Selector from 'components/ui/Selector';
 import {settingsContentWidth} from 'styles';
 
 const TABS = [
-  {label: 'Pixels', value: 'pixels'},
+  {label: 'Body', value: 'body'},
   {label: 'Eyes', value: 'eyes'},
   {label: 'Logo', value: 'logo'},
 ];
 
 export default class extends React.PureComponent {
   state = {
-    selectedTab: 'pixels',
+    selectedTab: 'body',
   };
 
   render() {
     const {selectedTab} = this.state;
     let content;
     switch (selectedTab) {
-      case 'pixels':
-        content = <QRPixelSettings type="pixels" />;
+      case 'body':
+        content = <QRPixelSettings type="body" />;
         break;
       case 'eyes':
         content = <QRPixelSettings type="eyes" />;

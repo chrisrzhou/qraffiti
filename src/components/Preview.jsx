@@ -7,7 +7,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 const Preview = ({qr, onExitPreview}) => {
-  const {eyeColors, eyePattern, inputString, pixelColors, pixelPattern} = qr;
+  const {eyeColors, eyePattern, inputString, bodyColors, bodyPattern} = qr;
   return (
     <Flex
       alignItems="center"
@@ -31,8 +31,8 @@ const Preview = ({qr, onExitPreview}) => {
           eyePattern={eyePattern}
           inputString={inputString}
           maxSize={200}
-          pixelColors={pixelColors}
-          pixelPattern={pixelPattern}
+          bodyColors={bodyColors}
+          bodyPattern={bodyPattern}
         />
       </Flex>
     </Flex>

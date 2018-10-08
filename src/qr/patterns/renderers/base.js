@@ -4,7 +4,7 @@ export default ({
   pixels,
   canvasSize,
   eyeColors,
-  pixelColors,
+  bodyColors,
 }) => {
   const {x, y} = pixel;
   const size = canvasSize / pixels.length;

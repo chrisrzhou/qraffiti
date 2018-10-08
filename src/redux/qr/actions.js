@@ -9,8 +9,8 @@ export const actionTypes = createActionTypes('qr', [
   'SET_IMAGE_HREF',
   'SET_INPUT',
   'SET_INPUT_TYPE',
-  'SET_PIXEL_COLORS',
-  'SET_PIXEL_PATTERN',
+  'SET_BODY_COLORS',
+  'SET_BODY_PATTERN',
   'SET_SELECTED_TAB',
   'SET_SHOW_SETTINGS',
 ]);
@@ -27,6 +27,6 @@ export const setInput = createAction(actionTypes.SET_INPUT);
 
 export const setInputType = createAction(actionTypes.SET_INPUT_TYPE);
 
-export const setPixelColors = createAction(actionTypes.SET_PIXEL_COLORS);
+export const setBodyColors = createAction(actionTypes.SET_BODY_COLORS);
 
-export const setPixelPattern = createAction(actionTypes.SET_PIXEL_PATTERN);
+export const setBodyPattern = createAction(actionTypes.SET_BODY_PATTERN);

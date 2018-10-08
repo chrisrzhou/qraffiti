@@ -3,8 +3,8 @@ const PARAM_WHITELIST_FIELDS = [
   'eyePattern',
   'inputData',
   'inputType',
-  'pixelColors',
-  'pixelPattern',
+  'bodyColors',
+  'bodyPattern',
 ];
 
 export const getUrlParam = state => {

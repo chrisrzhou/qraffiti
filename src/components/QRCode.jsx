@@ -10,8 +10,8 @@ export default class QRCode extends React.PureComponent {
     eyeColors: ['#000000', '#000000'],
     eyePattern: 'base',
     maxSize: 400,
-    pixelColors: ['#000000', '#000000'],
-    pixelPattern: 'base',
+    bodyColors: ['#000000', '#000000'],
+    bodyPattern: 'base',
   };
 
   state = {
@@ -47,8 +47,8 @@ export default class QRCode extends React.PureComponent {
       eyeColors,
       eyePattern,
       inputString,
-      pixelColors,
-      pixelPattern,
+      bodyColors,
+      bodyPattern,
     } = this.props;
     // get pixels
     const pixels = await getPixels(inputString, errorCorrectionLevel);
@@ -67,7 +67,7 @@ export default class QRCode extends React.PureComponent {
         const colorScale = d3Scale
           .scaleLinear()
           .domain([0, pixels.length])
-          .range(pixelColors);
+          .range(bodyColors);
 
         // render default styles
         let fillStyle = 'rgba(0, 0, 0, 0)';
@@ -75,13 +75,13 @@ export default class QRCode extends React.PureComponent {
           fillStyle = colorScale(x + y);
           if (!isInnerEye && !isOuterEye) {
             context.fillStyle = fillStyle;
-            getRenderer(pixelPattern)({
+            getRenderer(bodyPattern)({
               context,
               pixel,
               pixels,
               canvasSize,
               eyeColors,
-              pixelColors,
+              bodyColors,
             });
           } else {
             if (isInnerEye) {
@@ -97,7 +97,7 @@ export default class QRCode extends React.PureComponent {
               pixels,
               canvasSize,
               eyeColors,
-              pixelColors,
+              bodyColors,
             });
           }
         }

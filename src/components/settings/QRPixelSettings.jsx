@@ -2,8 +2,8 @@ import {Flex, Text} from 'rebass';
 import {
   setEyeColors,
   setEyePattern,
-  setPixelColors,
-  setPixelPattern,
+  setBodyColors,
+  setBodyPattern,
 } from 'redux/qr/actions';
 
 import ColorPicker from 'components/ui/ColorPicker';
@@ -17,12 +17,12 @@ import {settingsContentWidth} from 'styles';
 const QRPixelSettings = ({
   eyeColors,
   eyePattern,
-  pixelColors,
-  pixelPattern,
+  bodyColors,
+  bodyPattern,
   setEyeColors,
   setEyePattern,
-  setPixelColors,
-  setPixelPattern,
+  setBodyColors,
+  setBodyPattern,
   type,
 }) => {
   let colors;
@@ -35,10 +35,10 @@ const QRPixelSettings = ({
     setColors = setEyeColors;
     setPattern = setEyePattern;
   } else {
-    colors = pixelColors;
-    pattern = pixelPattern;
-    setColors = setPixelColors;
-    setPattern = setPixelPattern;
+    colors = bodyColors;
+    pattern = bodyPattern;
+    setColors = setBodyColors;
+    setPattern = setBodyPattern;
   }
   return (
     <Flex alignItems="center" flexDirection="column">
@@ -84,13 +84,13 @@ export default connect(
   ({qr}, ownProps) => ({
     eyeColors: qr.eyeColors,
     eyePattern: qr.eyePattern,
-    pixelColors: qr.pixelColors,
-    pixelPattern: qr.pixelPattern,
+    bodyColors: qr.bodyColors,
+    bodyPattern: qr.bodyPattern,
   }),
   {
     setEyeColors,
     setEyePattern,
-    setPixelColors,
-    setPixelPattern,
+    setBodyColors,
+    setBodyPattern,
   },
 )(QRPixelSettings);
