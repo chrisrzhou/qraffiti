@@ -25,7 +25,7 @@ export const keyframes = {
   `,
 };
 
-export const settingsContentWidth = 250;
+export const settingsContentWidth = 300;
 
 export const colors = {
   primary: 'rgba(210, 210, 210, 1)',

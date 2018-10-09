@@ -93,8 +93,13 @@ export default class QRCode extends React.PureComponent {
     const pixels = await getPixels(inputString, errorCorrectionLevel);
 
     // render linear gradient background
-    if (!backgroundImage) {
-      const gradient = this._context.createLinearGradient(0, 0, 170, 0);
+    if (!backgroundImage && canvasSize) {
+      const gradient = this._context.createLinearGradient(
+        0,
+        0,
+        canvasSize,
+        canvasSize,
+      );
       gradient.addColorStop(0, backgroundColors[0]);
       gradient.addColorStop(1, backgroundColors[1]);
       this._context.fillStyle = gradient;
@@ -123,6 +128,7 @@ export default class QRCode extends React.PureComponent {
               pixels,
               canvasSize,
               eyeColors,
+              backgroundColors,
               bodyColors,
             });
           } else {
@@ -139,6 +145,7 @@ export default class QRCode extends React.PureComponent {
               pixels,
               canvasSize,
               eyeColors,
+              backgroundColors,
               bodyColors,
             });
           }

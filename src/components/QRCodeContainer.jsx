@@ -29,6 +29,6 @@ const QRCodeContainer = ({logoImage, maxSize, qr}) => {
 };
 
 export default connect(({qr}) => ({
-  logoImage: getLogoImage(qr),
+  logoImage: getLogoImage(qr.logo),
   qr,
 }))(QRCodeContainer);

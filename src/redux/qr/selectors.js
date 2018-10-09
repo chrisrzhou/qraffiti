@@ -11,6 +11,6 @@ export const getUrlParam = state => {
   return btoa(JSON.stringify(urlParams));
 };
 
-export const getLogoImage = ({logo}) => {
+export const getLogoImage = logo => {
   return logo ? require(`assets/logos/${logo}.svg`) : null;
 };

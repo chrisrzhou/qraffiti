@@ -62,8 +62,8 @@ const QRPixelSettings = ({
         mt={1}
       />
       <Flex
-        justifyContent="center"
         flexWrap="wrap"
+        justifyContent="center"
         width={settingsContentWidth}>
         {Object.values(patterns)
           .filter(pattern => pattern.type === 'both' || pattern.type === type)

@@ -1,5 +1,6 @@
 import base from './renderers/base';
 import {createPattern} from 'qr/utils';
+import heart from './renderers/heart';
 import polygon from './renderers/polygon';
 import round from './renderers/round';
 
@@ -27,6 +28,11 @@ const patterns = {
   diamond: createPattern({
     id: 'diamond',
     renderer: polygon(4),
+    type: 'body',
+  }),
+  heart: createPattern({
+    id: 'heart',
+    renderer: heart,
     type: 'body',
   }),
 };

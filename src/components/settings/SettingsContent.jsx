@@ -5,6 +5,7 @@ import AppBackgroundSettings from './AppBackgroundSettings';
 import Button from 'components/ui/Button';
 import QRDesignSettings from './QRDesignSettings';
 import QRInputSettings from './QRInputSettings';
+import QRPresetSettings from './QRPresetSettings';
 import React from 'react';
 import {connect} from 'react-redux';
 import {setShowSettings} from 'redux/app/actions';
@@ -19,6 +20,9 @@ const SettingsContent = ({selectedTab, showSettings, setShowSettings}) => {
   switch (selectedTab) {
     case 'input':
       tabContent = <QRInputSettings />;
+      break;
+    case 'preset':
+      tabContent = <QRPresetSettings />;
       break;
     case 'design':
       tabContent = <QRDesignSettings />;

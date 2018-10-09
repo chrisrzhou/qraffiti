@@ -11,6 +11,7 @@ export const actionTypes = createActionTypes('qr', [
   'SET_INPUT',
   'SET_INPUT_TYPE',
   'SET_LOGO',
+  'SET_PRESET',
 ]);
 
 export const hydrateState = createAction(actionTypes.HYDRATE_STATE);
@@ -36,3 +37,5 @@ export const setInput = createAction(actionTypes.SET_INPUT);
 export const setInputType = createAction(actionTypes.SET_INPUT_TYPE);
 
 export const setLogo = createAction(actionTypes.SET_LOGO);
+
+export const setPreset = createAction(actionTypes.SET_PRESET);

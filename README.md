@@ -2,9 +2,7 @@
 
 Create graffiti with QR codes.
 
-- [ ] QR Backdrop
-- [ ] Themes
-- [ ] upload background/backdrop/logo
+- [ ] Update docs
 
 ## About
 

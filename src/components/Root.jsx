@@ -15,7 +15,7 @@ export default ({children, location}) => (
         {
           name: 'keywords',
           content:
-            'qr, qrcode, generator, graffiti, ui, uiux, design, chrisrzhou, art, react, gatsby, static',
+            'qr, qrcode, generator, graffiti, ui, uiux, design, chrisrzhou, chrisrzhou.io, react, redux, gatsbyjs, dataviz, netlify, jamstack',
         },
       ]}>
       <html lang="en" />

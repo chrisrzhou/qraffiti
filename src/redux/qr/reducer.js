@@ -1,12 +1,13 @@
 import {actionTypes} from './actions';
 import {createReducers} from 'redux/utils';
+import presets from 'qr/presets';
 
-const getInitialState = () => ({
-  backgroundColors: ['rgba(255, 255, 255, 1)', 'rgba(230, 255, 255, 1)'],
+export const getInitialState = () => ({
+  backgroundColors: ['#FFFFFF', '#FFFA9E'],
   backgroundImage: null,
-  bodyColors: ['rgba(30, 10, 90, 1)', 'rgba(20, 50, 20, 1)'],
+  bodyColors: ['#FEC564', '#D9317A'],
   bodyPattern: 'base',
-  eyeColors: ['rgba(80, 30, 30, 1)', 'rgba(200, 50, 50, 1)'],
+  eyeColors: ['#D9317A', '#D9317A'],
   eyePattern: 'base',
   inputData: {},
   inputString: 'https://qraffiti.chrisrzhou.io',
@@ -26,31 +27,34 @@ export default createReducers(getInitialState(), {
       },
     };
   },
-  [actionTypes.SET_BACKGROUND_COLORS]: (state, {payload}) => ({
+  [actionTypes.SET_BACKGROUND_COLORS]: (
+    state,
+    {payload: backgroundColors},
+  ) => ({
     ...state,
-    backgroundColors: payload,
+    backgroundColors,
     backgroundImage: null,
   }),
-  [actionTypes.SET_BACKGROUND_IMAGE]: (state, {payload}) => ({
+  [actionTypes.SET_BACKGROUND_IMAGE]: (state, {payload: backgroundImage}) => ({
     ...state,
-    backgroundImage: payload,
+    backgroundImage,
     showSettings: false,
   }),
-  [actionTypes.SET_BODY_COLORS]: (state, {payload}) => ({
+  [actionTypes.SET_BODY_COLORS]: (state, {payload: bodyColors}) => ({
     ...state,
-    bodyColors: payload,
+    bodyColors,
   }),
-  [actionTypes.SET_BODY_PATTERN]: (state, {payload}) => ({
+  [actionTypes.SET_BODY_PATTERN]: (state, {payload: bodyPattern}) => ({
     ...state,
-    bodyPattern: payload,
+    bodyPattern,
   }),
-  [actionTypes.SET_EYE_COLORS]: (state, {payload}) => ({
+  [actionTypes.SET_EYE_COLORS]: (state, {payload: eyeColors}) => ({
     ...state,
-    eyeColors: payload,
+    eyeColors,
   }),
-  [actionTypes.SET_EYE_PATTERN]: (state, {payload}) => ({
+  [actionTypes.SET_EYE_PATTERN]: (state, {payload: eyePattern}) => ({
     ...state,
-    eyePattern: payload,
+    eyePattern,
   }),
   [actionTypes.SET_INPUT]: (state, {payload}) => {
     const {inputData, inputString, inputType} = payload;
@@ -64,12 +68,16 @@ export default createReducers(getInitialState(), {
       inputType,
     };
   },
-  [actionTypes.SET_LOGO]: (state, {payload}) => ({
+  [actionTypes.SET_LOGO]: (state, {payload: logo}) => ({
     ...state,
-    logo: payload,
+    logo,
   }),
-  [actionTypes.SET_INPUT_TYPE]: (state, {payload}) => ({
+  [actionTypes.SET_INPUT_TYPE]: (state, {payload: inputType}) => ({
     ...state,
-    inputType: payload,
+    inputType,
+  }),
+  [actionTypes.SET_PRESET]: (state, {payload: preset}) => ({
+    ...state,
+    ...presets[preset],
   }),
 });

@@ -11,27 +11,32 @@ const getInitialState = () => ({
 });
 
 export default createReducers(getInitialState(), {
-  [actionTypes.SET_BACKGROUND_COLORS]: (state, {payload}) => ({
+  [actionTypes.SET_BACKGROUND_COLORS]: (
+    state,
+    {payload: backgroundColors},
+  ) => ({
     ...state,
-    backgroundColors: payload,
-    backgroundImage: `linear-gradient(90deg, ${payload[0]}, ${payload[1]})`,
+    backgroundColors,
+    backgroundImage: `linear-gradient(90deg, ${backgroundColors[0]}, ${
+      backgroundColors[1]
+    })`,
   }),
-  [actionTypes.SET_BACKGROUND_IMAGE]: (state, {payload}) => ({
+  [actionTypes.SET_BACKGROUND_IMAGE]: (state, {payload: backgroundImage}) => ({
     ...state,
-    backgroundImage: payload,
+    backgroundImage,
     showSettings: false,
   }),
-  [actionTypes.SET_PREVIEW]: (state, {payload}) => ({
+  [actionTypes.SET_PREVIEW]: (state, {payload: isPreview}) => ({
     ...state,
-    isPreview: payload,
+    isPreview,
   }),
-  [actionTypes.SET_SELECTED_TAB]: (state, {payload}) => ({
+  [actionTypes.SET_SELECTED_TAB]: (state, {payload: selectedTab}) => ({
     ...state,
-    selectedTab: payload,
+    selectedTab,
     showSettings: true,
   }),
-  [actionTypes.SET_SHOW_SETTINGS]: (state, {payload}) => ({
+  [actionTypes.SET_SHOW_SETTINGS]: (state, {payload: showSettings}) => ({
     ...state,
-    showSettings: payload,
+    showSettings,
   }),
 });

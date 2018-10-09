@@ -22,6 +22,25 @@ export const createPattern = ({id, renderer, type}) => ({
   type,
 });
 
+export const createPreset = ({
+  id,
+  backgroundColors,
+  bodyColors,
+  bodyPattern,
+  eyeColors,
+  eyePattern,
+  logo,
+}) => ({
+  backgroundColors,
+  bodyColors,
+  bodyPattern,
+  eyeColors,
+  eyePattern,
+  label: _prettifyText(id),
+  logo,
+  value: id,
+});
+
 export const getPixels = async (text, errorCorrectionLevel = 'M') => {
   const options = {
     errorCorrectionLevel,

@@ -9,6 +9,7 @@ import {setSelectedTab} from 'redux/app/actions';
 
 const tabs = [
   {label: 'spray', value: 'input'},
+  {label: 'preset', value: 'preset'},
   {label: 'design', value: 'design'},
   {label: 'wall', value: 'background'},
 ];
