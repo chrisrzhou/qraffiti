@@ -17,6 +17,10 @@ export default ({children, location}) => (
           content:
             'qr, qrcode, generator, graffiti, ui, uiux, design, chrisrzhou, chrisrzhou.io, react, redux, gatsbyjs, dataviz, netlify, jamstack',
         },
+        {
+          name: 'google-site-verication',
+          content: '1sSW3r2btXYcf3x3G9x_ZPdoxnlzaPEsin-7COULVuQ',
+        },
       ]}>
       <html lang="en" />
     </Helmet>

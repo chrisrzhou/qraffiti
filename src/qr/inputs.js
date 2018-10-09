@@ -37,7 +37,7 @@ export default {
       },
       {
         id: 'subject',
-        placeholder: 'Qraffiti Feedback',
+        placeholder: 'qraffiti Feedback',
         type: 'text',
       },
       {
