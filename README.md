@@ -6,6 +6,8 @@ https://qraffiti.chrisrzhou.io
 
 [![MIT License][license-badge]](LICENSE.md)
 
+[license-badge]: https://flat.badgen.net/badge/license/MIT/blue
+
 Create graffiti with QR codes. No ads + logins + servers, just fun + art :)
 
 ## Features
