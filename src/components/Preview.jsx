@@ -1,6 +1,7 @@
+import {Box, Flex} from 'rebass';
 import {colors, keyframes} from 'styles';
 
-import {Flex} from 'rebass';
+import GraffitiText from 'components/ui/GraffitiText';
 import Logo from 'components/ui/Logo';
 import QRCodeContainer from './QRCodeContainer';
 import React from 'react';
@@ -11,6 +12,7 @@ export default ({onExitPreview}) => {
       alignItems="center"
       css={`
         animation: fadein 1s ease-in-out;
+        cursor: pointer;
         height: 100vh;
         width: 100vw;
         ${keyframes.fadein};
@@ -24,7 +26,17 @@ export default ({onExitPreview}) => {
         width="100%"
         p={3}>
         <Logo />
-        <QRCodeContainer maxSize={200} />
+        <Box my={3}>
+          <QRCodeContainer maxSize={200} />
+        </Box>
+        <GraffitiText
+          css={`
+            :hover {
+              color: ${colors.secondary};
+            }
+          `}>
+          Start
+        </GraffitiText>
       </Flex>
     </Flex>
   );

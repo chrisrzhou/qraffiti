@@ -38,7 +38,6 @@ export default createReducers(getInitialState(), {
   [actionTypes.SET_BACKGROUND_IMAGE]: (state, {payload: backgroundImage}) => ({
     ...state,
     backgroundImage,
-    showSettings: false,
   }),
   [actionTypes.SET_BODY_COLORS]: (state, {payload: bodyColors}) => ({
     ...state,
@@ -70,7 +69,7 @@ export default createReducers(getInitialState(), {
   },
   [actionTypes.SET_LOGO]: (state, {payload: logo}) => ({
     ...state,
-    logo,
+    logo: state.logo === logo ? null : logo,
   }),
   [actionTypes.SET_INPUT_TYPE]: (state, {payload: inputType}) => ({
     ...state,

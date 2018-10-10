@@ -1,17 +1,15 @@
 import {Box, Flex} from 'rebass';
-import {colors, keyframes} from 'styles';
-import {setPreview, setShowSettings} from 'redux/app/actions';
+import {setPreview, setSelectedTab} from 'redux/app/actions';
 
 import Background from './Background';
 import Footer from './Footer';
-import Logo from 'components/ui/Logo';
 import PermalinkButton from './PermalinkButton';
 import Preview from './Preview';
 import QRCodeContainer from './QRCodeContainer';
 import React from 'react';
 import Row from 'components/ui/Row';
-import SettingsContent from 'components/settings/SettingsContent';
-import SettingsTabs from 'components/settings/SettingsTabs';
+import SaveButton from './SaveButton';
+import Settings from './settings/Settings';
 import TweetButton from './TweetButton';
 import {connect} from 'react-redux';
 import {hydrateState} from 'redux/qr/actions';
@@ -22,7 +20,6 @@ class App extends React.PureComponent {
     if (qrState) {
       try {
         this.props.hydrateState(JSON.parse(atob(qrState)));
-        this.setState({isHydrated: true});
       } catch {
         console.error(
           'Failed to load provided qr code, defaulting to base configuration',
@@ -46,29 +43,16 @@ class App extends React.PureComponent {
       />
     ) : (
       <>
-        <Flex
-          alignItems="center"
-          bg={colors.blackAlpha}
-          css={`
-            animation: dropdown 1s ease-in-out;
-            position: relative;
-            ${keyframes.dropdown};
-          `}
-          flexDirection="column"
-          justifyContent="center"
-          py={[2, 5]}>
-          <Logo onClick={this._enablePreview} />
-          <SettingsTabs />
-          <SettingsContent />
-        </Flex>
-        <Flex flexDirection="column" alignItems="center" mt={[2, 4]}>
+        <Settings />
+        <Flex flexDirection="column" alignItems="center" mt={[160, 300]}>
           <QRCodeContainer maxSize={400} />
           <Row
             items={[
+              <SaveButton />,
               <PermalinkButton location={location} />,
               <TweetButton location={location} />,
             ]}
-            mt={3}
+            mt={2}
           />
         </Flex>
       </>
@@ -85,14 +69,9 @@ class App extends React.PureComponent {
     );
   }
 
-  _enablePreview = () => {
-    this.props.setPreview(true);
-    this.props.setShowSettings(false);
-  };
-
   _escapeKeyPress = event => {
     if (event.keyCode === 27) {
-      this.props.setShowSettings(false);
+      this.props.setSelectedTab();
     }
   };
 }
@@ -104,6 +83,6 @@ export default connect(
   {
     hydrateState,
     setPreview,
-    setShowSettings,
+    setSelectedTab,
   },
 )(App);

@@ -43,7 +43,12 @@ export default class QRPatternPreview extends React.PureComponent {
     return (
       <SelectBox isSelected={isSelected} m={1} p={1} onClick={onClick}>
         <Text textAlign="center">{label}</Text>
-        <Box bg="white" mt={1}>
+        <Box
+          css={`
+            border: 1px solid black;
+          `}
+          bg="white"
+          mt={1}>
           <canvas ref={ref => (this._canvas = ref)} />
         </Box>
       </SelectBox>

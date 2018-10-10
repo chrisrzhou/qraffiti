@@ -33,7 +33,7 @@ export default class QRCode extends React.PureComponent {
   }
 
   render() {
-    return <canvas ref={ref => (this._canvas = ref)} />;
+    return <canvas id={this.props.id} ref={ref => (this._canvas = ref)} />;
   }
 
   _render() {

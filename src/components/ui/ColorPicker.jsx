@@ -34,30 +34,32 @@ export default class ColorPicker extends React.PureComponent {
           onClick={this.handleClick}>
           <Box
             css={`
-              width: 40px;
-              height: 16px;
               background: ${color};
+              border: 1px solid black;
+              height: 16px;
+              width: 40px;
             `}
           />
         </Box>
         {displayColorPicker && (
           <Box
             css={`
+              bottom: 0;
               left: 0;
               position: fixed;
+              right: 0;
               top: 0;
-            `}>
+            `}
+            onClick={this.handleClose}>
             <Box
               css={`
-                bottom: 0;
-                left: 0;
-                position: fixed;
-                right: 0;
-                top: 0;
-              `}
-              onClick={this.handleClose}
-            />
-            <SketchPicker color={color} onChange={this.handleChange} />
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+              `}>
+              <SketchPicker color={color} onChange={this.handleChange} />
+            </Box>
           </Box>
         )}
       </Box>

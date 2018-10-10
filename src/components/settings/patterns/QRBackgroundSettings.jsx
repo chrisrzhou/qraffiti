@@ -1,5 +1,5 @@
 import {StaticQuery, graphql} from 'gatsby';
-import {setBackgroundColors, setBackgroundImage} from 'redux/app/actions';
+import {setBackgroundColors, setBackgroundImage} from 'redux/qr/actions';
 
 import BackgroundImagePreview from 'components/ui/BackgroundImagePreview';
 import Button from 'components/ui/Button';
@@ -22,7 +22,7 @@ const query = graphql`
   }
 `;
 
-const AppBackgroundSettings = ({
+const QRBackgroundSettings = ({
   backgroundColors,
   backgroundImage,
   setBackgroundColors,
@@ -38,7 +38,7 @@ const AppBackgroundSettings = ({
             key={node.name}
             src={node.publicURL}
             onClick={() => {
-              setBackgroundImage(`url(${node.publicURL})`);
+              setBackgroundImage(node.publicURL);
             }}
           />
         ));
@@ -78,12 +78,12 @@ const AppBackgroundSettings = ({
 };
 
 export default connect(
-  ({app}) => ({
-    backgroundColors: app.backgroundColors,
-    backgroundImage: app.backgroundImage,
+  ({qr}) => ({
+    backgroundColors: qr.backgroundColors,
+    backgroundImage: qr.backgroundImage,
   }),
   {
     setBackgroundColors,
     setBackgroundImage,
   },
-)(AppBackgroundSettings);
+)(QRBackgroundSettings);

@@ -1,4 +1,3 @@
-import {Flex, Text} from 'rebass';
 import {
   setBodyColors,
   setBodyPattern,
@@ -7,12 +6,12 @@ import {
 } from 'redux/qr/actions';
 
 import ColorPicker from 'components/ui/ColorPicker';
+import {Flex} from 'rebass';
 import QRPatternPreview from './QRPatternPreview';
 import React from 'react';
 import Row from 'components/ui/Row';
 import {connect} from 'react-redux';
 import patterns from 'qr/patterns';
-import {settingsContentWidth} from 'styles';
 
 const QRPixelSettings = ({
   eyeColors,
@@ -41,8 +40,7 @@ const QRPixelSettings = ({
     setPattern = setBodyPattern;
   }
   return (
-    <Flex alignItems="center" flexDirection="column">
-      <Text>Colors</Text>
+    <Flex alignItems={['center', 'flex-start']} flexDirection="column">
       <Row
         items={[
           <ColorPicker
@@ -58,13 +56,10 @@ const QRPixelSettings = ({
             }}
           />,
         ]}
-        mb={4}
-        mt={1}
+        mb={3}
+        spacing={1}
       />
-      <Flex
-        flexWrap="wrap"
-        justifyContent="center"
-        width={settingsContentWidth}>
+      <Flex flexWrap="wrap" justifyContent="center">
         {Object.values(patterns)
           .filter(pattern => pattern.type === 'both' || pattern.type === type)
           .map(({label, renderer, value}) => (

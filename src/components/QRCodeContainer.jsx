@@ -3,6 +3,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getLogoImage} from 'redux/qr/selectors';
 
+export const QR_CANVAS_DOM_ID = 'qrCanvas';
+
 const QRCodeContainer = ({logoImage, maxSize, qr}) => {
   const {
     backgroundColors,
@@ -15,6 +17,7 @@ const QRCodeContainer = ({logoImage, maxSize, qr}) => {
   } = qr;
   return (
     <QRCode
+      id={QR_CANVAS_DOM_ID}
       backgroundColors={backgroundColors}
       backgroundImage={backgroundImage}
       bodyColors={bodyColors}

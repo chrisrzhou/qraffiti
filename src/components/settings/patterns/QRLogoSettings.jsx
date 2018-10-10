@@ -6,7 +6,6 @@ import React from 'react';
 import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
 import {setLogo} from 'redux/qr/actions';
-import {settingsContentWidth} from 'styles';
 
 const query = graphql`
   query {
@@ -43,13 +42,12 @@ const QRLogoSettings = ({logo, setLogo}) => {
           );
         });
         return (
-          <Flex alignItems="center" flexDirection="column">
+          <Flex alignItems={['center', 'flex-start']} flexDirection="column">
             <Flex
               alignItems="center"
               flexWrap="wrap"
               justifyContent="center"
-              mb={4}
-              width={settingsContentWidth}>
+              mb={1}>
               {logos}
             </Flex>
             <Button

@@ -14,7 +14,8 @@ export default () => (
       right: 0;
     `}
     justifyContent="space-between"
-    p={2}>
+    px={2}
+    py={1}>
     <Logo size={20} />
     <a href="https://github.com/chrisrzhou/qraffiti">About</a>
   </Flex>

@@ -6,8 +6,7 @@ const getInitialState = () => ({
   backgroundColors: ['rgba(210, 230, 150, 1)', 'rgba(189, 165, 197, 1)'],
   backgroundImage: `url(${bgGraffiti})`,
   isPreview: true,
-  selectedTab: 'input',
-  showSettings: false,
+  selectedTab: null,
 });
 
 export default createReducers(getInitialState(), {
@@ -24,7 +23,6 @@ export default createReducers(getInitialState(), {
   [actionTypes.SET_BACKGROUND_IMAGE]: (state, {payload: backgroundImage}) => ({
     ...state,
     backgroundImage,
-    showSettings: false,
   }),
   [actionTypes.SET_PREVIEW]: (state, {payload: isPreview}) => ({
     ...state,
@@ -32,11 +30,6 @@ export default createReducers(getInitialState(), {
   }),
   [actionTypes.SET_SELECTED_TAB]: (state, {payload: selectedTab}) => ({
     ...state,
-    selectedTab,
-    showSettings: true,
-  }),
-  [actionTypes.SET_SHOW_SETTINGS]: (state, {payload: showSettings}) => ({
-    ...state,
-    showSettings,
+    selectedTab: state.selectedTab === selectedTab ? null : selectedTab,
   }),
 });

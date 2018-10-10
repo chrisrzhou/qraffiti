@@ -7,26 +7,26 @@ import React from 'react';
 import Selector from 'components/ui/Selector';
 import {connect} from 'react-redux';
 import inputs from 'qr/inputs';
-import {setShowSettings} from 'redux/app/actions';
+import {setSelectedTab} from 'redux/app/actions';
 
 const QRInput = ({
   inputData,
   inputType,
   setInput,
   setInputType,
-  setShowSettings,
+  setSelectedTab,
 }) => {
   const {fields, getInputString} = inputs[inputType];
   const data = inputData[inputType];
   return (
-    <Flex flexDirection={['column', 'row']}>
+    <Flex flexDirection={['column', 'row']} justifyContent="center">
       <Selector
         items={Object.values(inputs).map(({label, value}) => ({
           label,
           value,
         }))}
-        mb={[4, 0]}
-        mr={[0, 4]}
+        mb={[3, 0]}
+        mr={[0, 5]}
         onSelectItem={item => {
           setInputType(item.value);
         }}
@@ -45,20 +45,29 @@ const QRInput = ({
             inputString: getInputString(data),
             inputType,
           });
-          setShowSettings(false);
+          setSelectedTab();
         }}>
-        <Flex alignItems="flex-end" flexDirection="column">
-          {fields.map(({id, label, placeholder, type}) => (
-            <InputLabel
-              id={id}
-              key={id}
-              label={label}
-              placeholder={placeholder}
-              type={type}
-              value={data ? data[id] : undefined}
-            />
-          ))}
-          <Button label="Spray it" mt={4} type="submit" />
+        <Flex
+          alignItems="flex-end"
+          css={`
+            height: 100%;
+          `}
+          flexDirection="column"
+          justifyContent="space-between"
+          p={3}>
+          <Flex alignItems="flex-end" flexDirection="column">
+            {fields.map(({id, label, placeholder, type}) => (
+              <InputLabel
+                id={id}
+                key={id}
+                label={label}
+                placeholder={placeholder}
+                type={type}
+                value={data ? data[id] : undefined}
+              />
+            ))}
+          </Flex>
+          <Button label="Apply" mt={4} type="submit" />
         </Flex>
       </form>
     </Flex>
@@ -70,5 +79,9 @@ export default connect(
     inputData: qr.inputData,
     inputType: qr.inputType,
   }),
-  {setInput, setInputType, setShowSettings},
+  {
+    setInput,
+    setInputType,
+    setSelectedTab,
+  },
 )(QRInput);

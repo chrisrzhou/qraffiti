@@ -6,17 +6,10 @@ import {connect} from 'react-redux';
 import {getLogoImage} from 'redux/qr/selectors';
 import presets from 'qr/presets';
 import {setPreset} from 'redux/qr/actions';
-import {setShowSettings} from 'redux/app/actions';
-import {settingsContentWidth} from 'styles';
+import {setSelectedTab} from 'redux/app/actions';
 
-const QRPresetSettings = ({inputString, setPreset, setShowSettings}) => (
-  <Flex
-    css={`
-      height: fit-content;
-    `}
-    justifyContent="center"
-    flexWrap="wrap"
-    width={[settingsContentWidth, settingsContentWidth * 2]}>
+const QRPresetSettings = ({inputString, setPreset, setSelectedTab}) => (
+  <Flex flexWrap={['wrap', 'nowrap']}>
     {Object.values(presets).map(({label, value}) => {
       const preset = presets[value];
       return (
@@ -27,7 +20,7 @@ const QRPresetSettings = ({inputString, setPreset, setShowSettings}) => (
           m={2}
           onClick={() => {
             setPreset(value);
-            setShowSettings(false);
+            setSelectedTab();
           }}>
           <Text>{label}</Text>
           <Box
@@ -35,7 +28,6 @@ const QRPresetSettings = ({inputString, setPreset, setShowSettings}) => (
               border: 2px solid white;
               box-sizing: border-box;
               cursor: pointer;
-
               :hover {
                 border: 2px solid red;
               }
@@ -61,6 +53,6 @@ export default connect(
   }),
   {
     setPreset,
-    setShowSettings,
+    setSelectedTab,
   },
 )(QRPresetSettings);

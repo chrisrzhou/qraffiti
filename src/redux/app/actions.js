@@ -5,7 +5,6 @@ export const actionTypes = createActionTypes('app', [
   'SET_BACKGROUND_IMAGE',
   'SET_PREVIEW',
   'SET_SELECTED_TAB',
-  'SET_SHOW_SETTINGS',
 ]);
 
 export const setBackgroundColors = createAction(
@@ -19,5 +18,3 @@ export const setBackgroundImage = createAction(
 export const setPreview = createAction(actionTypes.SET_PREVIEW);
 
 export const setSelectedTab = createAction(actionTypes.SET_SELECTED_TAB);
-
-export const setShowSettings = createAction(actionTypes.SET_SHOW_SETTINGS);

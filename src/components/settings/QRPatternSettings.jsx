@@ -1,10 +1,9 @@
 import {Flex} from 'rebass';
-import QRBackgroundSettings from './qr-design/QRBackgroundSettings';
-import QRLogoSettings from './qr-design/QRLogoSettings';
-import QRPixelSettings from './qr-design/QRPixelSettings';
+import QRBackgroundSettings from './patterns/QRBackgroundSettings';
+import QRLogoSettings from './patterns/QRLogoSettings';
+import QRPixelSettings from './patterns/QRPixelSettings';
 import React from 'react';
 import Selector from 'components/ui/Selector';
-import {settingsContentWidth} from 'styles';
 
 const TABS = [
   {label: 'Body', value: 'body'},
@@ -39,14 +38,12 @@ export default class extends React.PureComponent {
       <Flex flexDirection={['column', 'row']}>
         <Selector
           items={TABS}
-          mb={[4, 0]}
-          mr={[0, 4]}
+          mb={[3, 0]}
+          mr={[0, 5]}
           selectedItem={selectedTab}
           onSelectItem={this._onSelectTab}
         />
-        <Flex justifyContent="center" width={settingsContentWidth}>
-          {content}
-        </Flex>
+        {content}
       </Flex>
     );
   }

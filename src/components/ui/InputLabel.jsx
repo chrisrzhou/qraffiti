@@ -25,7 +25,7 @@ const InputLabel = ({id, label, placeholder, type, value, ...otherProps}) => {
     <Flex
       alignItems="center"
       justifyContent="space-between"
-      my={1}
+      my={2}
       {...otherProps}>
       <label htmlFor={id}>
         <Text
@@ -50,10 +50,13 @@ const InputLabel = ({id, label, placeholder, type, value, ...otherProps}) => {
             font-size: 10px;
             padding: 4px 8px;
             resize: vertical;
-            width: 150px;
+            width: 200px;
 
             :focus {
               outline: none;
+            }
+            ::placeholder {
+              color: #9a9a9a;
             }
           }
         `}>

@@ -4,7 +4,7 @@ import {colors} from 'styles';
 
 export default ({onClick, ...otherProps}) => (
   <GraffitiText
-    fontSize={[70, 100]}
+    fontSize={[60, 100]}
     css={`
       cursor: pointer;
     `}
