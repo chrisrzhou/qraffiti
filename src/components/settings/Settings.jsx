@@ -107,19 +107,18 @@ class Settings extends React.PureComponent {
           <Box
             css={`
               max-height: 450px;
-              overflow: auto;
-              overflow-scrolling: auto;
+              overflow: scroll;
+              -webkit-overflow-scrolling: touch;
 
               ::-webkit-scrollbar {
                 height: 8px;
                 width: 8px;
               }
-              ::-webkit-scrollbar-track {
-                border: 1px solid ${colors.primary};
-                background-color: ${colors.blackAlpha};
-              }
               ::-webkit-scrollbar-thumb {
                 background-color: ${colors.grayAlpha};
+              }
+              ::-webkit-scrollbar-corner {
+                background-color: rgba(0, 0, 0, 0);
               }
             `}
             p={3}
