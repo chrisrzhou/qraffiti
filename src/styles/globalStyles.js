@@ -14,6 +14,7 @@ injectGlobal`
     font-size: 10px;
     margin: 0;
     overflow: hidden;
+
     a {
       color: ${colors.primary};
     }
