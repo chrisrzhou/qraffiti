@@ -1,5 +1,4 @@
 import {Box, Flex} from 'rebass';
-import {setPreview, setSelectedTab} from 'redux/app/actions';
 
 import Background from './Background';
 import Footer from './Footer';
@@ -13,6 +12,7 @@ import Settings from './settings/Settings';
 import TweetButton from './TweetButton';
 import {connect} from 'react-redux';
 import {hydrateState} from 'redux/qr/actions';
+import {setPreview} from 'redux/app/actions';
 
 class App extends React.PureComponent {
   componentDidMount() {
@@ -26,11 +26,6 @@ class App extends React.PureComponent {
         );
       }
     }
-    window.addEventListener('keydown', this._escapeKeyPress, false);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this._escapeKeyPress, false);
   }
 
   render() {
@@ -68,12 +63,6 @@ class App extends React.PureComponent {
       </Box>
     );
   }
-
-  _escapeKeyPress = event => {
-    if (event.keyCode === 27) {
-      this.props.setSelectedTab();
-    }
-  };
 }
 
 export default connect(
@@ -83,6 +72,5 @@ export default connect(
   {
     hydrateState,
     setPreview,
-    setSelectedTab,
   },
 )(App);
