@@ -64,6 +64,7 @@ class Settings extends React.PureComponent {
           css={`
             animation: dropdown 1s ease-in-out, fadein 3s ease;
             position: fixed;
+            z-index: 1;
             ${keyframes.dropdown};
             ${keyframes.fadein};
           `}
@@ -94,20 +95,11 @@ class Settings extends React.PureComponent {
               mb={2}
             />
           </Flex>
-          {selectedTab && (
-            <Box
-              css={`
-                position: fixed;
-                right: 4px;
-                top: 0;
-              `}>
-              <CloseButton onClick={this._closeSettings} />
-            </Box>
-          )}
           <Box
             css={`
-              max-height: 450px;
+              max-height: 400px;
               overflow: scroll;
+              overflow-scrolling: touch;
               -webkit-overflow-scrolling: touch;
 
               ::-webkit-scrollbar {
@@ -125,6 +117,16 @@ class Settings extends React.PureComponent {
             width="100%">
             {tabContent}
           </Box>
+          {selectedTab && (
+            <Box
+              css={`
+                position: fixed;
+                right: 4px;
+                top: 0;
+              `}>
+              <CloseButton onClick={this._closeSettings} />
+            </Box>
+          )}
         </Flex>
       </div>
     );
