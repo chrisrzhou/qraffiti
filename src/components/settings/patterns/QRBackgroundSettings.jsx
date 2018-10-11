@@ -69,7 +69,9 @@ const QRBackgroundSettings = ({
               mb={3}
               spacing={1}
             />
-            <Flex flexDirection={['column', 'row']}>{backgrounds}</Flex>
+            <Flex flexWrap="wrap" justifyContent={['center', 'flex-start']}>
+              {backgrounds}
+            </Flex>
           </Flex>
         );
       }}

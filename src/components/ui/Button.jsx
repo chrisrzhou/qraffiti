@@ -9,6 +9,7 @@ export default ({label, type, onClick, ...otherProps}) => (
       	background: ${colors.primary};
       	border: none;
       	cursor: pointer;
+        font-size: 10px;
       	font-weight: bold;
         padding: 10px 20px;
       	position: relative;

@@ -1,4 +1,5 @@
-import {Box} from 'rebass';
+import {Box, Flex} from 'rebass';
+
 import React from 'react';
 import {SketchPicker} from 'react-color';
 import {colors} from 'styles';
@@ -26,7 +27,7 @@ export default class ColorPicker extends React.PureComponent {
       <Box>
         <Box
           css={`
-            background: ${colors.primary};
+            background: ${colors.blackAlpha};
             box-shadow: 0 0 0 1px ${colors.whiteAlpha};
             cursor: pointer;
             padding: 2px;
@@ -42,7 +43,9 @@ export default class ColorPicker extends React.PureComponent {
           />
         </Box>
         {displayColorPicker && (
-          <Box
+          <Flex
+            alignItems="center"
+            bg={colors.blackAlpha}
             css={`
               bottom: 0;
               left: 0;
@@ -50,17 +53,19 @@ export default class ColorPicker extends React.PureComponent {
               right: 0;
               top: 0;
             `}
-            onClick={this.handleClose}>
+            justifyContent="center">
             <Box
               css={`
-                left: 50%;
-                position: absolute;
-                top: 50%;
-                transform: translate(-50%, -50%);
-              `}>
-              <SketchPicker color={color} onChange={this.handleChange} />
-            </Box>
-          </Box>
+                bottom: 0;
+                left: 0;
+                position: fixed;
+                right: 0;
+                top: 0;
+              `}
+              onClick={this.handleClose}
+            />{' '}
+            <SketchPicker color={color} onChange={this.handleChange} />
+          </Flex>
         )}
       </Box>
     );
@@ -70,7 +75,8 @@ export default class ColorPicker extends React.PureComponent {
     this.setState({displayColorPicker: !this.state.displayColorPicker});
   };
 
-  handleClose = () => {
+  handleClose = e => {
+    e.stopPropagation();
     this.setState({displayColorPicker: false});
   };
 

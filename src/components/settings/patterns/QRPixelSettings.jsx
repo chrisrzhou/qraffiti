@@ -59,7 +59,7 @@ const QRPixelSettings = ({
         mb={3}
         spacing={1}
       />
-      <Flex flexWrap="wrap" justifyContent="center">
+      <Flex flexWrap="wrap" justifyContent={['center', 'flex-start']}>
         {Object.values(patterns)
           .filter(pattern => pattern.type === 'both' || pattern.type === type)
           .map(({label, renderer, value}) => (

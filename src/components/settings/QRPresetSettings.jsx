@@ -9,7 +9,7 @@ import {setPreset} from 'redux/qr/actions';
 import {setSelectedTab} from 'redux/app/actions';
 
 const QRPresetSettings = ({inputString, setPreset, setSelectedTab}) => (
-  <Flex flexWrap={['wrap', 'nowrap']}>
+  <Flex flexWrap={['wrap', 'nowrap']} justifyContent={['center', 'flex-start']}>
     {Object.values(presets).map(({label, value}) => {
       const preset = presets[value];
       return (
@@ -38,7 +38,7 @@ const QRPresetSettings = ({inputString, setPreset, setSelectedTab}) => (
               {...preset}
               inputString={inputString}
               logoImage={getLogoImage(preset.logo)}
-              maxSize={120}
+              maxSize={100}
             />
           </Box>
         </Flex>

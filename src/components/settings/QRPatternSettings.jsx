@@ -1,4 +1,5 @@
-import {Flex} from 'rebass';
+import {Box, Flex} from 'rebass';
+
 import QRBackgroundSettings from './patterns/QRBackgroundSettings';
 import QRLogoSettings from './patterns/QRLogoSettings';
 import QRPixelSettings from './patterns/QRPixelSettings';
@@ -35,7 +36,7 @@ export default class extends React.PureComponent {
         break;
     }
     return (
-      <Flex flexDirection={['column', 'row']}>
+      <Flex flexDirection={['column', 'row']} justifyContent="center">
         <Selector
           items={TABS}
           mb={[3, 0]}
@@ -43,7 +44,7 @@ export default class extends React.PureComponent {
           selectedItem={selectedTab}
           onSelectItem={this._onSelectTab}
         />
-        {content}
+        <Box width={['100%', 400]}>{content}</Box>
       </Flex>
     );
   }

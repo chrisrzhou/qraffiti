@@ -46,7 +46,7 @@ const QRLogoSettings = ({logo, setLogo}) => {
             <Flex
               alignItems="center"
               flexWrap="wrap"
-              justifyContent="center"
+              justifyContent={['center', 'flex-start']}
               mb={1}>
               {logos}
             </Flex>

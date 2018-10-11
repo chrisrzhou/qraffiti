@@ -14,7 +14,7 @@ import Row from 'components/ui/Row';
 import SelectBox from 'components/ui/SelectBox';
 import {connect} from 'react-redux';
 
-const tabs = ['vibe', 'message', 'pattern', 'wall'];
+const tabs = ['vibe', 'pattern', 'message', 'wall'];
 
 const Settings = ({selectedTab, setPreview, setSelectedTab}) => {
   let tabContent;
@@ -43,27 +43,26 @@ const Settings = ({selectedTab, setPreview, setSelectedTab}) => {
   }
   return (
     <Flex
-      alignItems="center"
       bg={colors.blackAlpha}
+      alignItems="center"
       css={`
-        animation: dropdown 1s ease-in-out;
+        animation: dropdown 1s ease-in-out, fadein 3s ease;
         position: fixed;
         ${keyframes.dropdown};
+        ${keyframes.fadein};
       `}
       flexDirection="column"
       justifyContent="center"
       width="100%">
       <Flex
         css={`
-          animation: fadein 5s ease;
           border-bottom: 2px solid ${colors.primary};
-          ${keyframes.fadein};
         `}
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
         width="100%">
-        <Text color="rgba(125, 0, 0, 1)" my={1}>
+        <Text color="rgba(150, 0, 0, 1)" my={1}>
           PICK YOUR
         </Text>
         <Row
@@ -79,10 +78,41 @@ const Settings = ({selectedTab, setPreview, setSelectedTab}) => {
           mb={2}
         />
       </Flex>
+      {selectedTab && (
+        <>
+          <Box
+            css={`
+              bottom: 0;
+              left: 0;
+              position: fixed;
+              right: 0;
+              top: 0;
+              z-index: -1;
+            `}
+            onClick={() => {
+              setSelectedTab();
+            }}
+          />
+          <Box
+            css={`
+              position: fixed;
+              right: 4px;
+              top: 0;
+            `}>
+            <CloseButton
+              onClick={() => {
+                setSelectedTab();
+              }}
+            />
+          </Box>
+        </>
+      )}
       <Box
         css={`
           max-height: 450px;
           overflow: auto;
+          -webkit-overflow-scrolling: touch;
+
           ::-webkit-scrollbar {
             height: 8px;
             width: 8px;
@@ -95,23 +125,9 @@ const Settings = ({selectedTab, setPreview, setSelectedTab}) => {
             background-color: ${colors.grayAlpha};
           }
         `}
-        py={2}
-        width="calc(100% - 16px)">
+        p={3}
+        width="100%">
         {tabContent}
-      </Box>
-      <Box
-        css={`
-          position: fixed;
-          right: 4px;
-          top: 0;
-        `}>
-        {selectedTab && (
-          <CloseButton
-            onClick={() => {
-              setSelectedTab();
-            }}
-          />
-        )}
       </Box>
     </Flex>
   );

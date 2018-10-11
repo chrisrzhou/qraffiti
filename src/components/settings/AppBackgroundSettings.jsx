@@ -43,7 +43,7 @@ const AppBackgroundSettings = ({
           />
         ));
         return (
-          <Flex alignItems={['center', 'flex-start']} flexDirection="column">
+          <Flex alignItems="center" flexDirection="column">
             <Row
               items={[
                 <ColorPicker
@@ -69,7 +69,12 @@ const AppBackgroundSettings = ({
               mb={3}
               spacing={1}
             />
-            <Flex flexDirection={['column', 'row']}>{backgrounds}</Flex>
+            <Flex
+              flexWrap="wrap"
+              justifyContent={['center', 'flex-start']}
+              width={['100%', 800]}>
+              {backgrounds}
+            </Flex>
           </Flex>
         );
       }}
