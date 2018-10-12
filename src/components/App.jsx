@@ -1,6 +1,5 @@
-import {Box, Flex} from 'rebass';
-
 import Background from './Background';
+import {Flex} from 'rebass';
 import Footer from './Footer';
 import PermalinkButton from './PermalinkButton';
 import Preview from './Preview';
@@ -48,19 +47,17 @@ class App extends React.PureComponent {
               <TweetButton location={location} />,
             ]}
             mt={2}
+            spacing={[1, 2]}
           />
         </Flex>
       </>
     );
     return (
-      <Box
-        css={`
-          overflow: hidden;
-        `}>
+      <>
         <Background />
         {content}
         <Footer />
-      </Box>
+      </>
     );
   }
 }

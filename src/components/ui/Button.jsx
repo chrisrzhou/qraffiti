@@ -7,7 +7,7 @@ export default ({label, type, onClick, ...otherProps}) => (
     css={`
       button {
       	background: ${colors.primary};
-      	border: none;
+      	border: 1px solid ${colors.blackAlpha};
       	cursor: pointer;
         font-size: 10px;
       	font-weight: bold;

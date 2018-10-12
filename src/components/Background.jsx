@@ -6,11 +6,13 @@ import {keyframes} from 'styles';
 const Background = ({backgroundImage}) => (
   <Box
     css={`
+      animation: fadein 3s ease-in-out;
       background-image: ${backgroundImage};
       background-size: cover;
-      animation: fadein 3s ease-in-out;
       height: 100vh;
       position: fixed;
+      left: 0;
+      top: 0;
       width: 100vw;
       z-index: -1; /* always below */
       ${keyframes.fadein};

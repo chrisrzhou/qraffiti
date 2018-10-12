@@ -76,6 +76,15 @@ export default {
     eyePattern: 'base',
     logo: 'youtube',
   }),
+  discord: createPreset({
+    id: 'discord',
+    backgroundColors: ['#FFFFFF', '#FFFFFF'],
+    bodyColors: ['#7289DA', '#7289DA'],
+    bodyPattern: 'round',
+    eyeColors: ['#7289DA', '#7289DA'],
+    eyePattern: 'base',
+    logo: 'discord',
+  }),
   linkedin: createPreset({
     id: 'linkedin',
     backgroundColors: ['#FFFFFF', '#FFFFFF'],

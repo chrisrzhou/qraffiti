@@ -55,6 +55,7 @@ class Settings extends React.PureComponent {
     }
     return (
       <div
+        style={{left: 0, position: 'fixed', top: 0}}
         ref={ref => {
           this._ref = ref;
         }}>
@@ -98,19 +99,18 @@ class Settings extends React.PureComponent {
           <Box
             css={`
               max-height: 400px;
-              overflow: scroll;
-              overflow-scrolling: touch;
-              -webkit-overflow-scrolling: touch;
+              overflow: auto;
 
               ::-webkit-scrollbar {
                 height: 8px;
                 width: 8px;
               }
+              ::-webkit-scrollbar-track {
+                border: 1px solid ${colors.primary};
+                background-color: ${colors.blackAlpha};
+              }
               ::-webkit-scrollbar-thumb {
                 background-color: ${colors.grayAlpha};
-              }
-              ::-webkit-scrollbar-corner {
-                background-color: rgba(0, 0, 0, 0);
               }
             `}
             p={3}

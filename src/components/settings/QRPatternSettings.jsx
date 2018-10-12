@@ -44,7 +44,7 @@ export default class extends React.PureComponent {
           selectedItem={selectedTab}
           onSelectItem={this._onSelectTab}
         />
-        <Box width={['100%', 400]}>{content}</Box>
+        <Box width={['100%', '40%']}>{content}</Box>
       </Flex>
     );
   }

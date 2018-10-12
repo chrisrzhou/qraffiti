@@ -9,7 +9,10 @@ import {setPreset} from 'redux/qr/actions';
 import {setSelectedTab} from 'redux/app/actions';
 
 const QRPresetSettings = ({inputString, setPreset, setSelectedTab}) => (
-  <Flex flexWrap={['wrap', 'nowrap']} justifyContent={['center', 'flex-start']}>
+  <Flex
+    flexWrap={['wrap', 'nowrap']}
+    alignItems="center"
+    justifyContent={['center', 'flex-start']}>
     {Object.values(presets).map(({label, value}) => {
       const preset = presets[value];
       return (

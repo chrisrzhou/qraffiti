@@ -71,8 +71,8 @@ const AppBackgroundSettings = ({
             />
             <Flex
               flexWrap="wrap"
-              justifyContent={['center', 'flex-start']}
-              width={['100%', 800]}>
+              justifyContent="center"
+              width={['100%', '80%']}>
               {backgrounds}
             </Flex>
           </Flex>

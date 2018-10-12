@@ -17,6 +17,6 @@ export default () => (
     px={2}
     py={1}>
     <Logo size={20} />
-    <a href="https://github.com/chrisrzhou/qraffiti">About</a>
+    <a href="https://github.com/chrisrzhou/qraffiti">Github</a>
   </Flex>
 );

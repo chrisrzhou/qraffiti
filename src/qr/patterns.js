@@ -17,7 +17,7 @@ const patterns = {
   }),
   dot: createPattern({
     id: 'dot',
-    renderer: round(0.4),
+    renderer: round(0.3),
     type: 'body',
   }),
   triangle: createPattern({
