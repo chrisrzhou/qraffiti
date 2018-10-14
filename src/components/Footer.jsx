@@ -12,6 +12,7 @@ export default () => (
       position: fixed;
       left: 0;
       right: 0;
+      z-index: -1; /* always below */
     `}
     justifyContent="space-between"
     px={2}

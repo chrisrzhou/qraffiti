@@ -43,15 +43,6 @@ class Settings extends React.PureComponent {
       case 'wall':
         tabContent = <AppBackgroundSettings />;
         break;
-      default:
-        tabContent = (
-          <Logo
-            onClick={() => {
-              setPreview(true);
-            }}
-            pb={[2, 4]}
-          />
-        );
     }
     return (
       <div
@@ -96,36 +87,48 @@ class Settings extends React.PureComponent {
               mb={2}
             />
           </Flex>
-          <Box
-            css={`
-              max-height: 400px;
-              overflow: auto;
+          {selectedTab ? (
+            <>
+              <Box
+                css={`
+                  position: fixed;
+                  right: 4px;
+                  top: 0;
+                `}>
+                <CloseButton onClick={this._closeSettings} />
+              </Box>
+              <Box
+                css={`
+                  overflow: auto;
 
-              ::-webkit-scrollbar {
-                height: 8px;
-                width: 8px;
-              }
-              ::-webkit-scrollbar-track {
-                border: 1px solid ${colors.primary};
-                background-color: ${colors.blackAlpha};
-              }
-              ::-webkit-scrollbar-thumb {
-                background-color: ${colors.grayAlpha};
-              }
-            `}
-            p={3}
-            width="100%">
-            {tabContent}
-          </Box>
-          {selectedTab && (
-            <Box
-              css={`
-                position: fixed;
-                right: 4px;
-                top: 0;
-              `}>
-              <CloseButton onClick={this._closeSettings} />
-            </Box>
+                  ::-webkit-scrollbar {
+                    height: 8px;
+                    width: 8px;
+                  }
+                  ::-webkit-scrollbar-track {
+                    border: 1px solid ${colors.primary};
+                    background-color: ${colors.blackAlpha};
+                  }
+                  ::-webkit-scrollbar-thumb {
+                    background-color: ${colors.grayAlpha};
+                  }
+
+                  @media only screen and (max-device-width: 480px) {
+                    height: calc(100vh - 56px);
+                  }
+                `}
+                p={3}
+                width="100%">
+                {tabContent}
+              </Box>
+            </>
+          ) : (
+            <Logo
+              onClick={() => {
+                setPreview(true);
+              }}
+              pb={[2, 4]}
+            />
           )}
         </Flex>
       </div>
